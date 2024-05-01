@@ -15,6 +15,11 @@ namespace HospitalManagement
 		public Form1()
 		{
 			InitializeComponent();
+			this.Hide();
+			frmMedicalExaminationDetails frmMED = new frmMedicalExaminationDetails();
+			frmMED.ShowDialog();
+			frmServices frmServices = new frmServices();
+			frmServices.ShowDialog();
 		}
 	}
 }
