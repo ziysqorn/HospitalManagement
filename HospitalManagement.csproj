@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BacSi.Designer.cs">
+      <DependentUpon>BacSi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BenhNhan.Designer.cs">
+      <DependentUpon>BenhNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,13 +76,37 @@
     <Compile Include="frmServices.Designer.cs">
       <DependentUpon>frmServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhongBan.Designer.cs">
+      <DependentUpon>PhongBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BacSi.resx">
+      <DependentUpon>BacSi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BenhNhan.resx">
+      <DependentUpon>BenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMedicalExaminationDetails.resx">
       <DependentUpon>frmMedicalExaminationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmServices.resx">
       <DependentUpon>frmServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhongBan.resx">
+      <DependentUpon>PhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhongBan_IMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
