@@ -1,0 +1,13 @@
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.exe.config
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.exe
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.pdb
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ThuocForm.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.Properties.Resources.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.exe
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.pdb
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ChiTietToaThuocForm.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ToaThuocForm.resources

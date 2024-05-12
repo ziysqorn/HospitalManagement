@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HospitalManagement
 {
-	public partial class Form1 : Form
+	public partial class ToaThuocForm : Form
 	{
-		public Form1()
+		public ToaThuocForm()
 		{
 			InitializeComponent();
 		}
