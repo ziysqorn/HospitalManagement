@@ -52,9 +52,7 @@
     <Compile Include="BacSi.Designer.cs">
       <DependentUpon>BacSi.cs</DependentUpon>
     </Compile>
-    <Compile Include="BenhNhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="BenhNhan.cs" />
     <Compile Include="BenhNhan.Designer.cs">
       <DependentUpon>BenhNhan.cs</DependentUpon>
     </Compile>
@@ -76,15 +74,11 @@
     <Compile Include="frmServices.Designer.cs">
       <DependentUpon>frmServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="NhanVien.cs" />
     <Compile Include="NhanVien.Designer.cs">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhongBan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PhongBan.cs" />
     <Compile Include="PhongBan.Designer.cs">
       <DependentUpon>PhongBan.cs</DependentUpon>
     </Compile>

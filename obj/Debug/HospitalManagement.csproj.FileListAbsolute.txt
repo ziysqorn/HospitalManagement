@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.exe.config
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.exe
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.pdb
@@ -9,3 +10,14 @@ D:\Study\BMCSDL-App\obj\Debug\HospitalManagement.exe
 D:\Study\BMCSDL-App\obj\Debug\HospitalManagement.pdb
 D:\Study\BMCSDL-App\obj\Debug\HospitalManagement.frmMedicalExaminationDetails.resources
 D:\Study\BMCSDL-App\obj\Debug\HospitalManagement.frmServices.resources
+=======
+D:\Documents\Github\HospitalManagement\bin\Debug\HospitalManagement.exe.config
+D:\Documents\Github\HospitalManagement\bin\Debug\HospitalManagement.exe
+D:\Documents\Github\HospitalManagement\bin\Debug\HospitalManagement.pdb
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.csproj.AssemblyReference.cache
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.Properties.Resources.resources
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.csproj.GenerateResource.cache
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.csproj.CoreCompileInputs.cache
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.exe
+D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.pdb
+>>>>>>> Dat
