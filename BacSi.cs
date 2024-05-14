@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace HospitalManagement
 {
-<<<<<<<< HEAD:BacSi.cs
     public partial class BacSi : Form
     {
         public BacSi()
@@ -18,13 +17,5 @@ namespace HospitalManagement
             InitializeComponent();
         }
     }
-========
-	public partial class ThuocForm : Form
-	{
-		public ThuocForm()
-		{
-			InitializeComponent();
-		}
-	}
->>>>>>>> Quan:ThuocForm.cs
+
 }

@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.exe.config
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.exe
 D:\Study\BMCSDL-App\bin\Debug\HospitalManagement.pdb
@@ -22,7 +21,6 @@ D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.csproj.CoreC
 D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.exe
 D:\Documents\Github\HospitalManagement\obj\Debug\HospitalManagement.pdb
 >>>>>>> Dat
-=======
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.exe.config
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.exe
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\bin\Debug\HospitalManagement.pdb
@@ -37,3 +35,9 @@ C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\ob
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ChiTietToaThuocForm.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ToaThuocForm.resources
 >>>>>>> Quan
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BacSi.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BenhNhan.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmMedicalExaminationDetails.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmServices.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.NhanVien.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.PhongBan.resources

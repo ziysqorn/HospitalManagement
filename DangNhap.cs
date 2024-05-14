@@ -15,11 +15,6 @@ namespace HospitalManagement
 		public DangNhap()
 		{
 			InitializeComponent();
-			this.Hide();
-			frmMedicalExaminationDetails frmMED = new frmMedicalExaminationDetails();
-			frmMED.ShowDialog();
-			frmServices frmServices = new frmServices();
-			frmServices.ShowDialog();
 		}
 
     private void Form1_Load(object sender, EventArgs e)
