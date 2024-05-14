@@ -52,11 +52,29 @@
     <Compile Include="BacSi.Designer.cs">
       <DependentUpon>BacSi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BacSi_ToaThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BacSi_ToaThuoc.Designer.cs">
+      <DependentUpon>BacSi_ToaThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="BenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BenhNhan.Designer.cs">
       <DependentUpon>BenhNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BenhNhan_ToaThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BenhNhan_ToaThuoc.Designer.cs">
+      <DependentUpon>BenhNhan_ToaThuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietToaThuocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietToaThuocForm.Designer.cs">
+      <DependentUpon>ChiTietToaThuocForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
@@ -82,6 +100,12 @@
     <Compile Include="NhanVien.Designer.cs">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien_ToaThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien_ToaThuoc.Designer.cs">
+      <DependentUpon>NhanVien_ToaThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,11 +114,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThuocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThuocForm.Designer.cs">
+      <DependentUpon>ThuocForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToaThuocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToaThuocForm.Designer.cs">
+      <DependentUpon>ToaThuocForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BacSi.resx">
       <DependentUpon>BacSi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BacSi_ToaThuoc.resx">
+      <DependentUpon>BacSi_ToaThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BenhNhan.resx">
       <DependentUpon>BenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BenhNhan_ToaThuoc.resx">
+      <DependentUpon>BenhNhan_ToaThuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietToaThuocForm.resx">
+      <DependentUpon>ChiTietToaThuocForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMedicalExaminationDetails.resx">
       <DependentUpon>frmMedicalExaminationDetails.cs</DependentUpon>
@@ -104,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien_ToaThuoc.resx">
+      <DependentUpon>NhanVien_ToaThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhongBan.resx">
       <DependentUpon>PhongBan.cs</DependentUpon>
@@ -118,6 +166,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ThuocForm.resx">
+      <DependentUpon>ThuocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToaThuocForm.resx">
+      <DependentUpon>ToaThuocForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
