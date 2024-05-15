@@ -29,11 +29,17 @@ namespace HospitalManagement
 
     private void button1_Click(object sender, EventArgs e)
     {
-            DatabaseSetup db = new DatabaseSetup("sa", "Sigma120");
+            DatabaseSetup db = new DatabaseSetup("nhanvienChuyenMon", "NVCM@2206");
             try {
                 db.OpenConnection();
-                if (db.CheckConnection()) MessageBox.Show("Kết nối thành công");
-                else MessageBox.Show("Ngu");
+                if (db.CheckConnection()) 
+                { 
+                    MessageBox.Show("Kết nối thành công");
+                    frmMedicalExaminationDetails form = new frmMedicalExaminationDetails();
+                    form.Show();
+                    this.Hide();
+                }
+                else MessageBox.Show("Lỗi kết nối condioi");
 				db.CloseConnection();
             }
             catch(Exception ex)
