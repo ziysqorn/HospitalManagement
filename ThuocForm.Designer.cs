@@ -35,9 +35,8 @@
 			this.txtPrice = new System.Windows.Forms.TextBox();
 			this.btnSua = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
-			this.btnXoa = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.dGV_Thuoc = new System.Windows.Forms.DataGridView();
+			((System.ComponentModel.ISupportInitialize)(this.dGV_Thuoc)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -73,14 +72,14 @@
 			this.txtName.Location = new System.Drawing.Point(443, 109);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(252, 20);
-			this.txtName.TabIndex = 4;
+			this.txtName.TabIndex = 0;
 			// 
 			// txtPrice
 			// 
 			this.txtPrice.Location = new System.Drawing.Point(443, 181);
 			this.txtPrice.Name = "txtPrice";
 			this.txtPrice.Size = new System.Drawing.Size(252, 20);
-			this.txtPrice.TabIndex = 4;
+			this.txtPrice.TabIndex = 1;
 			// 
 			// btnSua
 			// 
@@ -88,8 +87,10 @@
 			this.btnSua.Name = "btnSua";
 			this.btnSua.Size = new System.Drawing.Size(113, 35);
 			this.btnSua.TabIndex = 5;
+			this.btnSua.TabStop = false;
 			this.btnSua.Text = "Sửa";
 			this.btnSua.UseVisualStyleBackColor = true;
+			this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
 			// 
 			// btnThem
 			// 
@@ -97,36 +98,35 @@
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(113, 35);
 			this.btnThem.TabIndex = 5;
+			this.btnThem.TabStop = false;
 			this.btnThem.Text = "Thêm";
 			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
 			// 
-			// btnXoa
+			// dGV_Thuoc
 			// 
-			this.btnXoa.Location = new System.Drawing.Point(144, 298);
-			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(113, 35);
-			this.btnXoa.TabIndex = 5;
-			this.btnXoa.Text = "Xóa";
-			this.btnXoa.UseVisualStyleBackColor = true;
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 51);
-			this.dataGridView1.MultiSelect = false;
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(392, 241);
-			this.dataGridView1.TabIndex = 6;
+			this.dGV_Thuoc.AllowUserToAddRows = false;
+			this.dGV_Thuoc.AllowUserToDeleteRows = false;
+			this.dGV_Thuoc.AllowUserToResizeColumns = false;
+			this.dGV_Thuoc.AllowUserToResizeRows = false;
+			this.dGV_Thuoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dGV_Thuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dGV_Thuoc.Location = new System.Drawing.Point(12, 51);
+			this.dGV_Thuoc.MultiSelect = false;
+			this.dGV_Thuoc.Name = "dGV_Thuoc";
+			this.dGV_Thuoc.ReadOnly = true;
+			this.dGV_Thuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dGV_Thuoc.Size = new System.Drawing.Size(392, 241);
+			this.dGV_Thuoc.TabIndex = 6;
+			this.dGV_Thuoc.TabStop = false;
+			this.dGV_Thuoc.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dGV_Thuoc_CellFormatting);
 			// 
 			// ThuocForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(717, 345);
-			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.btnXoa);
+			this.ClientSize = new System.Drawing.Size(717, 315);
+			this.Controls.Add(this.dGV_Thuoc);
 			this.Controls.Add(this.btnThem);
 			this.Controls.Add(this.btnSua);
 			this.Controls.Add(this.txtPrice);
@@ -136,7 +136,8 @@
 			this.Controls.Add(this.label1);
 			this.Name = "ThuocForm";
 			this.Text = "Quản lý thuốc";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.Load += new System.EventHandler(this.ThuocForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dGV_Thuoc)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -150,8 +151,7 @@
 		private System.Windows.Forms.TextBox txtPrice;
 		private System.Windows.Forms.Button btnSua;
 		private System.Windows.Forms.Button btnThem;
-		private System.Windows.Forms.Button btnXoa;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dGV_Thuoc;
 	}
 }
 
