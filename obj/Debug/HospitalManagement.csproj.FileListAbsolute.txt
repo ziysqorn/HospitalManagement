@@ -65,3 +65,4 @@ D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.csproj.GenerateResource.c
 D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.csproj.CoreCompileInputs.cache
 D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.exe
 D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.pdb
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.DangNhap.resources

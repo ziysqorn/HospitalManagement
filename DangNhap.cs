@@ -29,23 +29,40 @@ namespace HospitalManagement
 
     private void button1_Click(object sender, EventArgs e)
     {
-            DatabaseSetup db = new DatabaseSetup("nhanvienChuyenMon", "NVCM@2206");
-            try {
+            string username = txt_UserName.Text;
+            string password = txt_Pass.Text;
+
+            DatabaseSetup db = new DatabaseSetup(username, password);
+            try
+            {
                 db.OpenConnection();
-                if (db.CheckConnection()) 
-                { 
+                if (db.CheckConnection())
+                {
                     MessageBox.Show("Kết nối thành công");
-                    frmMedicalExaminationDetails form = new frmMedicalExaminationDetails();
-                    form.Show();
+
+                    if (username == "nhanvienChuyenMon" && password == "NVCM@2206")
+                    {
+                        frmMedicalExaminationDetails form = new frmMedicalExaminationDetails();
+                        form.Show();
+                    }
+                    else if (username == "nhanvienBanThuoc" && password == "NVBT@2203")
+                    {
+                        ToaThuocForm form = new ToaThuocForm(); // form dành cho nhân viên bán thuốc
+                        form.Show();
+                    }
+
                     this.Hide();
                 }
-                else MessageBox.Show("Lỗi kết nối condioi");
-				db.CloseConnection();
+                else
+                {
+                    MessageBox.Show("Lỗi kết nối");
+                }
+                db.CloseConnection();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-    }
+        }
   }
 }
