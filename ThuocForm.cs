@@ -36,11 +36,18 @@ namespace HospitalManagement
 				db.OpenConnection();
 				if (db.CheckConnection())
 				{
-					DataTable dt = new DataTable();
-					db.command.CommandText = "Select * from Thuoc";
-					SqlDataReader reader = db.command.ExecuteReader();
-					dt.Load(reader);
-					dGV_Thuoc.DataSource = dt;
+					try
+					{
+						DataTable dt = new DataTable();
+						db.command.CommandText = "Select * from Thuoc";
+						SqlDataReader reader = db.command.ExecuteReader();
+						dt.Load(reader);
+						dGV_Thuoc.DataSource = dt;
+					}
+					catch(Exception ex)
+					{
+						MessageBox.Show(ex.Message, "Thông báo");
+					}
 				} else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 				db.CloseConnection();
 			}
