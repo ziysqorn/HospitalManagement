@@ -18,7 +18,7 @@ namespace HospitalManagement
         public frmMedicalExaminationDetails()
         {
             InitializeComponent();
-            dbSetup = new DatabaseSetup("nhanvienChuyenMon", "NVCM@2206");
+            DatabaseSetup dbSetup = new DatabaseSetup("nhanvienChuyenMon", "NVCM@2206");
         }
 
 		private void frmMedicalExaminationDetails_Load(object sender, System.EventArgs e)

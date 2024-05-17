@@ -50,6 +50,13 @@ namespace HospitalManagement
                         ToaThuocForm form = new ToaThuocForm(); // form dành cho nhân viên bán thuốc
                         form.Show();
                     }
+                    else if (username == "NVTiepTan" && password == "NVTT@0711")
+                    {
+                        BenhNhan form = new BenhNhan();
+                        frmServices DichVu = new frmServices();
+                        form.Show();
+                        DichVu.Show();
+                    }
 
                     this.Hide();
                 }

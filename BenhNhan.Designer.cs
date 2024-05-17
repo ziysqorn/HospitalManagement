@@ -36,15 +36,13 @@
             this.Btn_Add_BN = new System.Windows.Forms.Button();
             this.Btn_Del_BN = new System.Windows.Forms.Button();
             this.Btn_Edit_BN = new System.Windows.Forms.Button();
-            this.Sex_BN = new System.Windows.Forms.Label();
             this.group_QLNV = new System.Windows.Forms.GroupBox();
             this.txt_CCCD_BN = new System.Windows.Forms.TextBox();
-            this.txt_Sex_BS = new System.Windows.Forms.TextBox();
             this.txt_Phone_BN = new System.Windows.Forms.TextBox();
             this.Phone_BS = new System.Windows.Forms.Label();
             this.txt_Birth_BN = new System.Windows.Forms.MaskedTextBox();
             this.Birth_BS = new System.Windows.Forms.Label();
-            this.txt_Name_BS = new System.Windows.Forms.TextBox();
+            this.txt_Name_BN = new System.Windows.Forms.TextBox();
             this.Name_BN = new System.Windows.Forms.Label();
             this.QLBS_label = new System.Windows.Forms.Label();
             this.dgv_BN = new System.Windows.Forms.DataGridView();
@@ -55,7 +53,7 @@
             // 
             // txt_Address_BN
             // 
-            this.txt_Address_BN.Location = new System.Drawing.Point(561, 56);
+            this.txt_Address_BN.Location = new System.Drawing.Point(559, 18);
             this.txt_Address_BN.Name = "txt_Address_BN";
             this.txt_Address_BN.Size = new System.Drawing.Size(146, 20);
             this.txt_Address_BN.TabIndex = 25;
@@ -65,7 +63,7 @@
             this.label_Address_BS.AutoSize = true;
             this.label_Address_BS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Address_BS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_Address_BS.Location = new System.Drawing.Point(479, 58);
+            this.label_Address_BS.Location = new System.Drawing.Point(477, 20);
             this.label_Address_BS.Name = "label_Address_BS";
             this.label_Address_BS.Size = new System.Drawing.Size(56, 19);
             this.label_Address_BS.TabIndex = 24;
@@ -76,7 +74,7 @@
             this.label_CCCD.AutoSize = true;
             this.label_CCCD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_CCCD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_CCCD.Location = new System.Drawing.Point(479, 96);
+            this.label_CCCD.Location = new System.Drawing.Point(477, 58);
             this.label_CCCD.Name = "label_CCCD";
             this.label_CCCD.Size = new System.Drawing.Size(54, 19);
             this.label_CCCD.TabIndex = 22;
@@ -118,6 +116,7 @@
             this.Btn_Add_BN.TabIndex = 0;
             this.Btn_Add_BN.Text = "Thêm";
             this.Btn_Add_BN.UseVisualStyleBackColor = false;
+            this.Btn_Add_BN.Click += new System.EventHandler(this.Btn_Add_BN_Click);
             // 
             // Btn_Del_BN
             // 
@@ -130,6 +129,7 @@
             this.Btn_Del_BN.TabIndex = 1;
             this.Btn_Del_BN.Text = "Xoá";
             this.Btn_Del_BN.UseVisualStyleBackColor = false;
+            this.Btn_Del_BN.Click += new System.EventHandler(this.Btn_Del_BN_Click);
             // 
             // Btn_Edit_BN
             // 
@@ -142,17 +142,7 @@
             this.Btn_Edit_BN.TabIndex = 1;
             this.Btn_Edit_BN.Text = "Sửa";
             this.Btn_Edit_BN.UseVisualStyleBackColor = false;
-            // 
-            // Sex_BN
-            // 
-            this.Sex_BN.AutoSize = true;
-            this.Sex_BN.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sex_BN.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Sex_BN.Location = new System.Drawing.Point(73, 60);
-            this.Sex_BN.Name = "Sex_BN";
-            this.Sex_BN.Size = new System.Drawing.Size(67, 19);
-            this.Sex_BN.TabIndex = 17;
-            this.Sex_BN.Text = "Giới tính";
+            this.Btn_Edit_BN.Click += new System.EventHandler(this.Btn_Edit_BN_Click);
             // 
             // group_QLNV
             // 
@@ -161,13 +151,11 @@
             this.group_QLNV.Controls.Add(this.label_Address_BS);
             this.group_QLNV.Controls.Add(this.txt_CCCD_BN);
             this.group_QLNV.Controls.Add(this.label_CCCD);
-            this.group_QLNV.Controls.Add(this.Sex_BN);
-            this.group_QLNV.Controls.Add(this.txt_Sex_BS);
             this.group_QLNV.Controls.Add(this.txt_Phone_BN);
             this.group_QLNV.Controls.Add(this.Phone_BS);
             this.group_QLNV.Controls.Add(this.txt_Birth_BN);
             this.group_QLNV.Controls.Add(this.Birth_BS);
-            this.group_QLNV.Controls.Add(this.txt_Name_BS);
+            this.group_QLNV.Controls.Add(this.txt_Name_BN);
             this.group_QLNV.Controls.Add(this.Name_BN);
             this.group_QLNV.Location = new System.Drawing.Point(13, 32);
             this.group_QLNV.Name = "group_QLNV";
@@ -177,17 +165,10 @@
             // 
             // txt_CCCD_BN
             // 
-            this.txt_CCCD_BN.Location = new System.Drawing.Point(561, 97);
+            this.txt_CCCD_BN.Location = new System.Drawing.Point(559, 59);
             this.txt_CCCD_BN.Name = "txt_CCCD_BN";
             this.txt_CCCD_BN.Size = new System.Drawing.Size(146, 20);
             this.txt_CCCD_BN.TabIndex = 23;
-            // 
-            // txt_Sex_BS
-            // 
-            this.txt_Sex_BS.Location = new System.Drawing.Point(177, 58);
-            this.txt_Sex_BS.Name = "txt_Sex_BS";
-            this.txt_Sex_BS.Size = new System.Drawing.Size(124, 20);
-            this.txt_Sex_BS.TabIndex = 14;
             // 
             // txt_Phone_BN
             // 
@@ -209,30 +190,29 @@
             // 
             // txt_Birth_BN
             // 
-            this.txt_Birth_BN.Location = new System.Drawing.Point(561, 19);
+            this.txt_Birth_BN.Location = new System.Drawing.Point(155, 59);
             this.txt_Birth_BN.Mask = "00/00/0000";
             this.txt_Birth_BN.Name = "txt_Birth_BN";
             this.txt_Birth_BN.Size = new System.Drawing.Size(146, 20);
             this.txt_Birth_BN.TabIndex = 7;
-            this.txt_Birth_BN.ValidatingType = typeof(System.DateTime);
             // 
             // Birth_BS
             // 
             this.Birth_BS.AutoSize = true;
             this.Birth_BS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Birth_BS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Birth_BS.Location = new System.Drawing.Point(479, 18);
+            this.Birth_BS.Location = new System.Drawing.Point(73, 58);
             this.Birth_BS.Name = "Birth_BS";
             this.Birth_BS.Size = new System.Drawing.Size(76, 19);
             this.Birth_BS.TabIndex = 6;
             this.Birth_BS.Text = "Ngày sinh";
             // 
-            // txt_Name_BS
+            // txt_Name_BN
             // 
-            this.txt_Name_BS.Location = new System.Drawing.Point(133, 19);
-            this.txt_Name_BS.Name = "txt_Name_BS";
-            this.txt_Name_BS.Size = new System.Drawing.Size(168, 20);
-            this.txt_Name_BS.TabIndex = 3;
+            this.txt_Name_BN.Location = new System.Drawing.Point(133, 19);
+            this.txt_Name_BN.Name = "txt_Name_BN";
+            this.txt_Name_BN.Size = new System.Drawing.Size(168, 20);
+            this.txt_Name_BN.TabIndex = 3;
             // 
             // Name_BN
             // 
@@ -258,11 +238,13 @@
             // 
             // dgv_BN
             // 
+            this.dgv_BN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_BN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_BN.Location = new System.Drawing.Point(13, 170);
             this.dgv_BN.Name = "dgv_BN";
             this.dgv_BN.Size = new System.Drawing.Size(775, 219);
             this.dgv_BN.TabIndex = 16;
+            this.dgv_BN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_BN_CellClick);
             // 
             // BenhNhan
             // 
@@ -294,15 +276,13 @@
         private System.Windows.Forms.Button Btn_Add_BN;
         private System.Windows.Forms.Button Btn_Del_BN;
         private System.Windows.Forms.Button Btn_Edit_BN;
-        private System.Windows.Forms.Label Sex_BN;
         private System.Windows.Forms.GroupBox group_QLNV;
         private System.Windows.Forms.TextBox txt_CCCD_BN;
-        private System.Windows.Forms.TextBox txt_Sex_BS;
         private System.Windows.Forms.TextBox txt_Phone_BN;
         private System.Windows.Forms.Label Phone_BS;
         private System.Windows.Forms.MaskedTextBox txt_Birth_BN;
         private System.Windows.Forms.Label Birth_BS;
-        private System.Windows.Forms.TextBox txt_Name_BS;
+        private System.Windows.Forms.TextBox txt_Name_BN;
         private System.Windows.Forms.Label Name_BN;
         private System.Windows.Forms.Label QLBS_label;
         private System.Windows.Forms.DataGridView dgv_BN;

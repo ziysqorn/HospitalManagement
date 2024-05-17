@@ -48,6 +48,8 @@ namespace HospitalManagement
             this.Btn_View_NV = new System.Windows.Forms.Button();
             this.dgv_QLToaThuoc = new System.Windows.Forms.DataGridView();
             this.Exit_Btn = new System.Windows.Forms.Button();
+            this.txt_TotalPrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_QLToaThuoc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,29 +93,31 @@ namespace HospitalManagement
             this.Btn_Edit_Toa.BackColor = System.Drawing.SystemColors.HotTrack;
             this.Btn_Edit_Toa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Edit_Toa.ForeColor = System.Drawing.SystemColors.Control;
-            this.Btn_Edit_Toa.Location = new System.Drawing.Point(434, 447);
+            this.Btn_Edit_Toa.Location = new System.Drawing.Point(925, 357);
             this.Btn_Edit_Toa.Name = "Btn_Edit_Toa";
             this.Btn_Edit_Toa.Size = new System.Drawing.Size(107, 44);
             this.Btn_Edit_Toa.TabIndex = 2;
             this.Btn_Edit_Toa.Text = "Sửa";
             this.Btn_Edit_Toa.UseVisualStyleBackColor = false;
+            this.Btn_Edit_Toa.Click += new System.EventHandler(this.Btn_Edit_Toa_Click);
             // 
             // Btn_Detail_ToaThuoc
             // 
             this.Btn_Detail_ToaThuoc.BackColor = System.Drawing.Color.MediumAquamarine;
             this.Btn_Detail_ToaThuoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Detail_ToaThuoc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_Detail_ToaThuoc.Location = new System.Drawing.Point(752, 382);
+            this.Btn_Detail_ToaThuoc.Location = new System.Drawing.Point(572, 447);
             this.Btn_Detail_ToaThuoc.Name = "Btn_Detail_ToaThuoc";
             this.Btn_Detail_ToaThuoc.Size = new System.Drawing.Size(107, 44);
             this.Btn_Detail_ToaThuoc.TabIndex = 2;
             this.Btn_Detail_ToaThuoc.Text = "Xem chi tiết";
             this.Btn_Detail_ToaThuoc.UseVisualStyleBackColor = false;
+            this.Btn_Detail_ToaThuoc.Click += new System.EventHandler(this.Btn_Detail_ToaThuoc_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(700, 65);
+            this.label2.Location = new System.Drawing.Point(699, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 14);
             this.label2.TabIndex = 3;
@@ -121,7 +125,7 @@ namespace HospitalManagement
             // 
             // txt_BSname_TT
             // 
-            this.txt_BSname_TT.Location = new System.Drawing.Point(703, 82);
+            this.txt_BSname_TT.Location = new System.Drawing.Point(702, 63);
             this.txt_BSname_TT.Name = "txt_BSname_TT";
             this.txt_BSname_TT.Size = new System.Drawing.Size(200, 20);
             this.txt_BSname_TT.TabIndex = 4;
@@ -129,7 +133,7 @@ namespace HospitalManagement
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(700, 142);
+            this.label3.Location = new System.Drawing.Point(699, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 14);
             this.label3.TabIndex = 3;
@@ -137,7 +141,7 @@ namespace HospitalManagement
             // 
             // txt_BNname_TT
             // 
-            this.txt_BNname_TT.Location = new System.Drawing.Point(703, 159);
+            this.txt_BNname_TT.Location = new System.Drawing.Point(702, 140);
             this.txt_BNname_TT.Name = "txt_BNname_TT";
             this.txt_BNname_TT.Size = new System.Drawing.Size(200, 20);
             this.txt_BNname_TT.TabIndex = 4;
@@ -145,7 +149,7 @@ namespace HospitalManagement
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(700, 225);
+            this.label4.Location = new System.Drawing.Point(699, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 14);
             this.label4.TabIndex = 3;
@@ -153,14 +157,14 @@ namespace HospitalManagement
             // 
             // txt_NVname_TT
             // 
-            this.txt_NVname_TT.Location = new System.Drawing.Point(703, 242);
+            this.txt_NVname_TT.Location = new System.Drawing.Point(702, 223);
             this.txt_NVname_TT.Name = "txt_NVname_TT";
             this.txt_NVname_TT.Size = new System.Drawing.Size(200, 20);
             this.txt_NVname_TT.TabIndex = 4;
             // 
             // mtxt_PayDate_TT
             // 
-            this.mtxt_PayDate_TT.Location = new System.Drawing.Point(703, 316);
+            this.mtxt_PayDate_TT.Location = new System.Drawing.Point(702, 297);
             this.mtxt_PayDate_TT.Mask = "00/00/0000 90:00";
             this.mtxt_PayDate_TT.Name = "mtxt_PayDate_TT";
             this.mtxt_PayDate_TT.Size = new System.Drawing.Size(200, 20);
@@ -170,7 +174,7 @@ namespace HospitalManagement
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(700, 299);
+            this.label5.Location = new System.Drawing.Point(699, 280);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 14);
             this.label5.TabIndex = 3;
@@ -178,7 +182,7 @@ namespace HospitalManagement
             // 
             // Btn_View_BS
             // 
-            this.Btn_View_BS.Location = new System.Drawing.Point(926, 74);
+            this.Btn_View_BS.Location = new System.Drawing.Point(925, 55);
             this.Btn_View_BS.Name = "Btn_View_BS";
             this.Btn_View_BS.Size = new System.Drawing.Size(97, 37);
             this.Btn_View_BS.TabIndex = 6;
@@ -187,7 +191,7 @@ namespace HospitalManagement
             // 
             // Btn_View_BN
             // 
-            this.Btn_View_BN.Location = new System.Drawing.Point(926, 151);
+            this.Btn_View_BN.Location = new System.Drawing.Point(925, 132);
             this.Btn_View_BN.Name = "Btn_View_BN";
             this.Btn_View_BN.Size = new System.Drawing.Size(97, 37);
             this.Btn_View_BN.TabIndex = 6;
@@ -196,7 +200,7 @@ namespace HospitalManagement
             // 
             // Btn_View_NV
             // 
-            this.Btn_View_NV.Location = new System.Drawing.Point(926, 234);
+            this.Btn_View_NV.Location = new System.Drawing.Point(925, 215);
             this.Btn_View_NV.Name = "Btn_View_NV";
             this.Btn_View_NV.Size = new System.Drawing.Size(97, 37);
             this.Btn_View_NV.TabIndex = 6;
@@ -205,6 +209,7 @@ namespace HospitalManagement
             // 
             // dgv_QLToaThuoc
             // 
+            this.dgv_QLToaThuoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_QLToaThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_QLToaThuoc.Location = new System.Drawing.Point(12, 45);
             this.dgv_QLToaThuoc.Name = "dgv_QLToaThuoc";
@@ -225,11 +230,29 @@ namespace HospitalManagement
             this.Exit_Btn.UseVisualStyleBackColor = false;
             this.Exit_Btn.Click += new System.EventHandler(this.Exit_Btn_Click);
             // 
+            // txt_TotalPrice
+            // 
+            this.txt_TotalPrice.Location = new System.Drawing.Point(702, 374);
+            this.txt_TotalPrice.Name = "txt_TotalPrice";
+            this.txt_TotalPrice.Size = new System.Drawing.Size(200, 20);
+            this.txt_TotalPrice.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(699, 357);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 14);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Thành tiền";
+            // 
             // ToaThuocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 504);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt_TotalPrice);
             this.Controls.Add(this.Exit_Btn);
             this.Controls.Add(this.dgv_QLToaThuoc);
             this.Controls.Add(this.Btn_View_NV);
@@ -277,5 +300,7 @@ namespace HospitalManagement
 		private System.Windows.Forms.Button Btn_View_NV;
 		private System.Windows.Forms.DataGridView dgv_QLToaThuoc;
         private System.Windows.Forms.Button Exit_Btn;
+        private TextBox txt_TotalPrice;
+        private Label label6;
     }
 }

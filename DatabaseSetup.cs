@@ -42,6 +42,7 @@ namespace HospitalManagement
 				dataAdapter.Fill(dataTable);
 				return dataTable;
 			}
+
 		}
 		public bool CheckConnection()
 		{
