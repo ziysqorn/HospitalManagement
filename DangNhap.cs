@@ -28,18 +28,38 @@ namespace HospitalManagement
     }
 
     private void button1_Click(object sender, EventArgs e)
-    {
-            DatabaseSetup db = new DatabaseSetup("sa", "Sigma120");
-            try {
+    {       string username = txtUserName.Text.ToString();
+            string password = txtPassWord.Text.ToString();
+
+            DatabaseSetup db = new DatabaseSetup();
+            try
+            {
                 db.OpenConnection();
-                if (db.CheckConnection()) MessageBox.Show("Kết nối thành công");
+                if (db.CheckConnection()) { 
+                    MessageBox.Show("Kết nối thành công");
+
+                    PhongBan phongBan = new PhongBan();
+                    phongBan.ShowDialog();
+
+                    BacSi bacSi = new BacSi();
+                    bacSi.ShowDialog();
+
+                    BacSi bacsi_ketoan = new BacSi("ketoan");
+                    bacsi_ketoan.ShowDialog();
+
+                    NhanVien nhanVien = new NhanVien();
+                    nhanVien.ShowDialog();
+
+                    NhanVien nhanvienketoan = new NhanVien("ketoan");
+                    nhanvienketoan.ShowDialog();
+                }
                 else MessageBox.Show("Ngu");
-				db.CloseConnection();
+                db.CloseConnection();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-    }
+        }
   }
 }

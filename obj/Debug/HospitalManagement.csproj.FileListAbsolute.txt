@@ -44,3 +44,27 @@ C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\ob
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BacSi_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.exe.config
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.exe
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.pdb
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.csproj.AssemblyReference.cache
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.BacSi.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.BacSi_ToaThuoc.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.BenhNhan.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.ChiTietToaThuocForm.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmMedicalExaminationDetails.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmServices.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.NhanVien.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.PhongBan.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.Properties.Resources.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.ThuocForm.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.ToaThuocForm.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.csproj.GenerateResource.cache
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.csproj.CoreCompileInputs.cache
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.exe
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.pdb
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.DangNhap.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmAddBacSi.resources
+C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmAddNhanVien.resources

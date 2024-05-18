@@ -47,18 +47,24 @@ BEGIN
     Open Symmetric Key SymKey Decryption By Certificate AESCert with password = 'Sigm@44444'
     if(@NhanVienID IS NOT NULL)
 	begin
-     SELECT ID, Name, DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBanID, BoPhanID
-     FROM NhanVien where ID = @NhanVienID;
+     SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
+     FROM NhanVien
+	 join PhongBan on PhongBan.ID = NhanVien.PhongBanID
+	 join BoPhan on BoPhan.ID = NhanVien.BoPhanID
+	 where NhanVien.ID = @NhanVienID;
 	end
 	else
 	begin
-     SELECT ID, Name, DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBanID, BoPhanID
-     FROM NhanVien;
+     SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
+	 FROM NhanVien
+	 join PhongBan on PhongBan.ID = NhanVien.PhongBanID
+	 join BoPhan on BoPhan.ID = NhanVien.BoPhanID
 	end
 	Close Symmetric Key SymKey
 END
 
-exec PROC_READ_NV 3
+
+exec PROC_READ_NV
 ------------------------------------------------------
 create proc PROC_UPDATE_NV
     @NhanVienID INT,

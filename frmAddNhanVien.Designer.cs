@@ -1,6 +1,6 @@
 ﻿namespace HospitalManagement
 {
-    partial class NhanVien
+    partial class frmAddNhanVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_NV = new System.Windows.Forms.DataGridView();
-            this.QLNV_label = new System.Windows.Forms.Label();
             this.group_QLNV = new System.Windows.Forms.GroupBox();
             this.cbb_BP = new System.Windows.Forms.ComboBox();
             this.cbb_PB = new System.Windows.Forms.ComboBox();
@@ -40,14 +38,10 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label_Address_NV = new System.Windows.Forms.Label();
             this.label_Email_NV = new System.Windows.Forms.Label();
-            this.Btn_Exit = new System.Windows.Forms.Button();
             this.txt_CCCD_NV = new System.Windows.Forms.TextBox();
             this.label_CCCD = new System.Windows.Forms.Label();
             this.txt_Salary_NV = new System.Windows.Forms.TextBox();
             this.Salary_NV = new System.Windows.Forms.Label();
-            this.Btn_Edit_NV = new System.Windows.Forms.Button();
-            this.Btn_Add_NV = new System.Windows.Forms.Button();
-            this.Btn_Del_NV = new System.Windows.Forms.Button();
             this.txt_Roles_NV = new System.Windows.Forms.TextBox();
             this.Roles_NV = new System.Windows.Forms.Label();
             this.txt_Phone_NV = new System.Windows.Forms.TextBox();
@@ -58,32 +52,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Name_NV = new System.Windows.Forms.TextBox();
             this.Name_NV = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NV)).BeginInit();
+            this.QLNV_label = new System.Windows.Forms.Label();
+            this.Btn_Add_NV = new System.Windows.Forms.Button();
             this.group_QLNV.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgv_NV
-            // 
-            this.dgv_NV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_NV.Location = new System.Drawing.Point(17, 255);
-            this.dgv_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dgv_NV.Name = "dgv_NV";
-            this.dgv_NV.RowHeadersWidth = 51;
-            this.dgv_NV.Size = new System.Drawing.Size(1033, 246);
-            this.dgv_NV.TabIndex = 0;
-            this.dgv_NV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NV_CellClick);
-            // 
-            // QLNV_label
-            // 
-            this.QLNV_label.AutoSize = true;
-            this.QLNV_label.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QLNV_label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.QLNV_label.Location = new System.Drawing.Point(369, 10);
-            this.QLNV_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.QLNV_label.Name = "QLNV_label";
-            this.QLNV_label.Size = new System.Drawing.Size(321, 34);
-            this.QLNV_label.TabIndex = 1;
-            this.QLNV_label.Text = "QUẢN LÝ NHÂN VIÊN";
             // 
             // group_QLNV
             // 
@@ -97,14 +69,10 @@
             this.group_QLNV.Controls.Add(this.txtDiaChi);
             this.group_QLNV.Controls.Add(this.label_Address_NV);
             this.group_QLNV.Controls.Add(this.label_Email_NV);
-            this.group_QLNV.Controls.Add(this.Btn_Exit);
             this.group_QLNV.Controls.Add(this.txt_CCCD_NV);
             this.group_QLNV.Controls.Add(this.label_CCCD);
             this.group_QLNV.Controls.Add(this.txt_Salary_NV);
             this.group_QLNV.Controls.Add(this.Salary_NV);
-            this.group_QLNV.Controls.Add(this.Btn_Edit_NV);
-            this.group_QLNV.Controls.Add(this.Btn_Add_NV);
-            this.group_QLNV.Controls.Add(this.Btn_Del_NV);
             this.group_QLNV.Controls.Add(this.txt_Roles_NV);
             this.group_QLNV.Controls.Add(this.Roles_NV);
             this.group_QLNV.Controls.Add(this.txt_Phone_NV);
@@ -115,18 +83,18 @@
             this.group_QLNV.Controls.Add(this.label1);
             this.group_QLNV.Controls.Add(this.txt_Name_NV);
             this.group_QLNV.Controls.Add(this.Name_NV);
-            this.group_QLNV.Location = new System.Drawing.Point(16, 46);
+            this.group_QLNV.Location = new System.Drawing.Point(0, 103);
             this.group_QLNV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.group_QLNV.Name = "group_QLNV";
             this.group_QLNV.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.group_QLNV.Size = new System.Drawing.Size(1033, 202);
-            this.group_QLNV.TabIndex = 2;
+            this.group_QLNV.Size = new System.Drawing.Size(1057, 244);
+            this.group_QLNV.TabIndex = 4;
             this.group_QLNV.TabStop = false;
             // 
             // cbb_BP
             // 
             this.cbb_BP.FormattingEnabled = true;
-            this.cbb_BP.Location = new System.Drawing.Point(464, 108);
+            this.cbb_BP.Location = new System.Drawing.Point(464, 165);
             this.cbb_BP.Name = "cbb_BP";
             this.cbb_BP.Size = new System.Drawing.Size(193, 24);
             this.cbb_BP.TabIndex = 27;
@@ -134,7 +102,7 @@
             // cbb_PB
             // 
             this.cbb_PB.FormattingEnabled = true;
-            this.cbb_PB.Location = new System.Drawing.Point(464, 76);
+            this.cbb_PB.Location = new System.Drawing.Point(464, 109);
             this.cbb_PB.Name = "cbb_PB";
             this.cbb_PB.Size = new System.Drawing.Size(193, 24);
             this.cbb_PB.TabIndex = 26;
@@ -144,7 +112,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label3.Location = new System.Drawing.Point(355, 108);
+            this.label3.Location = new System.Drawing.Point(355, 165);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 23);
@@ -156,7 +124,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(355, 74);
+            this.label2.Location = new System.Drawing.Point(355, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 23);
@@ -168,7 +136,7 @@
             this.rdbnu.AutoSize = true;
             this.rdbnu.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbnu.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.rdbnu.Location = new System.Drawing.Point(872, 127);
+            this.rdbnu.Location = new System.Drawing.Point(872, 112);
             this.rdbnu.Name = "rdbnu";
             this.rdbnu.Size = new System.Drawing.Size(49, 21);
             this.rdbnu.TabIndex = 23;
@@ -181,7 +149,7 @@
             this.rdbnam.AutoSize = true;
             this.rdbnam.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbnam.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.rdbnam.Location = new System.Drawing.Point(807, 127);
+            this.rdbnam.Location = new System.Drawing.Point(807, 112);
             this.rdbnam.Name = "rdbnam";
             this.rdbnam.Size = new System.Drawing.Size(59, 21);
             this.rdbnam.TabIndex = 22;
@@ -191,10 +159,10 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(791, 94);
+            this.txtDiaChi.Location = new System.Drawing.Point(94, 167);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(227, 22);
+            this.txtDiaChi.Size = new System.Drawing.Size(217, 22);
             this.txtDiaChi.TabIndex = 21;
             // 
             // label_Address_NV
@@ -202,7 +170,7 @@
             this.label_Address_NV.AutoSize = true;
             this.label_Address_NV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Address_NV.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label_Address_NV.Location = new System.Drawing.Point(705, 93);
+            this.label_Address_NV.Location = new System.Drawing.Point(8, 166);
             this.label_Address_NV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Address_NV.Name = "label_Address_NV";
             this.label_Address_NV.Size = new System.Drawing.Size(68, 23);
@@ -221,23 +189,9 @@
             this.label_Email_NV.TabIndex = 19;
             this.label_Email_NV.Text = "Email";
             // 
-            // Btn_Exit
-            // 
-            this.Btn_Exit.BackColor = System.Drawing.Color.Red;
-            this.Btn_Exit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Exit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Exit.Location = new System.Drawing.Point(913, 158);
-            this.Btn_Exit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Exit.Name = "Btn_Exit";
-            this.Btn_Exit.Size = new System.Drawing.Size(112, 38);
-            this.Btn_Exit.TabIndex = 14;
-            this.Btn_Exit.Text = "Thoát";
-            this.Btn_Exit.UseVisualStyleBackColor = false;
-            this.Btn_Exit.Click += new System.EventHandler(this.Btn_Exit_Click);
-            // 
             // txt_CCCD_NV
             // 
-            this.txt_CCCD_NV.Location = new System.Drawing.Point(464, 47);
+            this.txt_CCCD_NV.Location = new System.Drawing.Point(464, 65);
             this.txt_CCCD_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_CCCD_NV.Name = "txt_CCCD_NV";
             this.txt_CCCD_NV.Size = new System.Drawing.Size(193, 22);
@@ -248,7 +202,7 @@
             this.label_CCCD.AutoSize = true;
             this.label_CCCD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_CCCD.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label_CCCD.Location = new System.Drawing.Point(355, 47);
+            this.label_CCCD.Location = new System.Drawing.Point(355, 65);
             this.label_CCCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_CCCD.Name = "label_CCCD";
             this.label_CCCD.Size = new System.Drawing.Size(66, 23);
@@ -257,10 +211,9 @@
             // 
             // txt_Salary_NV
             // 
-            this.txt_Salary_NV.Location = new System.Drawing.Point(791, 23);
+            this.txt_Salary_NV.Location = new System.Drawing.Point(791, 19);
             this.txt_Salary_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_Salary_NV.Name = "txt_Salary_NV";
-            this.txt_Salary_NV.ReadOnly = true;
             this.txt_Salary_NV.Size = new System.Drawing.Size(227, 22);
             this.txt_Salary_NV.TabIndex = 16;
             // 
@@ -269,58 +222,16 @@
             this.Salary_NV.AutoSize = true;
             this.Salary_NV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Salary_NV.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Salary_NV.Location = new System.Drawing.Point(705, 23);
+            this.Salary_NV.Location = new System.Drawing.Point(705, 17);
             this.Salary_NV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Salary_NV.Name = "Salary_NV";
             this.Salary_NV.Size = new System.Drawing.Size(66, 23);
             this.Salary_NV.TabIndex = 15;
             this.Salary_NV.Text = "Lương";
             // 
-            // Btn_Edit_NV
-            // 
-            this.Btn_Edit_NV.BackColor = System.Drawing.SystemColors.Highlight;
-            this.Btn_Edit_NV.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Edit_NV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Edit_NV.Location = new System.Drawing.Point(309, 158);
-            this.Btn_Edit_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Edit_NV.Name = "Btn_Edit_NV";
-            this.Btn_Edit_NV.Size = new System.Drawing.Size(112, 38);
-            this.Btn_Edit_NV.TabIndex = 1;
-            this.Btn_Edit_NV.Text = "Sửa";
-            this.Btn_Edit_NV.UseVisualStyleBackColor = false;
-            this.Btn_Edit_NV.Click += new System.EventHandler(this.Btn_Edit_NV_Click);
-            // 
-            // Btn_Add_NV
-            // 
-            this.Btn_Add_NV.BackColor = System.Drawing.SystemColors.Highlight;
-            this.Btn_Add_NV.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Add_NV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Add_NV.Location = new System.Drawing.Point(8, 158);
-            this.Btn_Add_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Add_NV.Name = "Btn_Add_NV";
-            this.Btn_Add_NV.Size = new System.Drawing.Size(112, 38);
-            this.Btn_Add_NV.TabIndex = 0;
-            this.Btn_Add_NV.Text = "Thêm";
-            this.Btn_Add_NV.UseVisualStyleBackColor = false;
-            this.Btn_Add_NV.Click += new System.EventHandler(this.Btn_Add_NV_Click);
-            // 
-            // Btn_Del_NV
-            // 
-            this.Btn_Del_NV.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Btn_Del_NV.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Del_NV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Del_NV.Location = new System.Drawing.Point(157, 158);
-            this.Btn_Del_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Del_NV.Name = "Btn_Del_NV";
-            this.Btn_Del_NV.Size = new System.Drawing.Size(112, 38);
-            this.Btn_Del_NV.TabIndex = 1;
-            this.Btn_Del_NV.Text = "Xoá";
-            this.Btn_Del_NV.UseVisualStyleBackColor = false;
-            this.Btn_Del_NV.Click += new System.EventHandler(this.Btn_Del_NV_Click);
-            // 
             // txt_Roles_NV
             // 
-            this.txt_Roles_NV.Location = new System.Drawing.Point(791, 61);
+            this.txt_Roles_NV.Location = new System.Drawing.Point(791, 66);
             this.txt_Roles_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_Roles_NV.Name = "txt_Roles_NV";
             this.txt_Roles_NV.Size = new System.Drawing.Size(227, 22);
@@ -331,7 +242,7 @@
             this.Roles_NV.AutoSize = true;
             this.Roles_NV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Roles_NV.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Roles_NV.Location = new System.Drawing.Point(703, 59);
+            this.Roles_NV.Location = new System.Drawing.Point(703, 63);
             this.Roles_NV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Roles_NV.Name = "Roles_NV";
             this.Roles_NV.Size = new System.Drawing.Size(80, 23);
@@ -393,7 +304,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(705, 125);
+            this.label1.Location = new System.Drawing.Point(705, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 23);
@@ -420,18 +331,42 @@
             this.Name_NV.TabIndex = 2;
             this.Name_NV.Text = "Họ tên";
             // 
-            // NhanVien
+            // QLNV_label
+            // 
+            this.QLNV_label.AutoSize = true;
+            this.QLNV_label.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QLNV_label.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.QLNV_label.Location = new System.Drawing.Point(370, 45);
+            this.QLNV_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.QLNV_label.Name = "QLNV_label";
+            this.QLNV_label.Size = new System.Drawing.Size(279, 34);
+            this.QLNV_label.TabIndex = 3;
+            this.QLNV_label.Text = "THÊM NHÂN VIÊN";
+            // 
+            // Btn_Add_NV
+            // 
+            this.Btn_Add_NV.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Btn_Add_NV.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Add_NV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_Add_NV.Location = new System.Drawing.Point(439, 373);
+            this.Btn_Add_NV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Btn_Add_NV.Name = "Btn_Add_NV";
+            this.Btn_Add_NV.Size = new System.Drawing.Size(112, 38);
+            this.Btn_Add_NV.TabIndex = 5;
+            this.Btn_Add_NV.Text = "Thêm";
+            this.Btn_Add_NV.UseVisualStyleBackColor = false;
+            this.Btn_Add_NV.Click += new System.EventHandler(this.Btn_Add_NV_Click);
+            // 
+            // frmAddNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 514);
+            this.ClientSize = new System.Drawing.Size(1067, 450);
+            this.Controls.Add(this.Btn_Add_NV);
             this.Controls.Add(this.group_QLNV);
             this.Controls.Add(this.QLNV_label);
-            this.Controls.Add(this.dgv_NV);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "NhanVien";
-            this.Text = "Quản lý nhân viên";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NV)).EndInit();
+            this.Name = "frmAddNhanVien";
+            this.Text = "frmAddNhanVien";
             this.group_QLNV.ResumeLayout(false);
             this.group_QLNV.PerformLayout();
             this.ResumeLayout(false);
@@ -441,35 +376,31 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_NV;
-        private System.Windows.Forms.Label QLNV_label;
         private System.Windows.Forms.GroupBox group_QLNV;
-        private System.Windows.Forms.Button Btn_Add_NV;
-        private System.Windows.Forms.Button Btn_Edit_NV;
-        private System.Windows.Forms.Button Btn_Del_NV;
-        private System.Windows.Forms.Label Name_NV;
-        private System.Windows.Forms.TextBox txt_Name_NV;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Birth_NV;
-        private System.Windows.Forms.MaskedTextBox txt_Birth_NV;
-        private System.Windows.Forms.TextBox txt_Phone_NV;
-        private System.Windows.Forms.Label Phone_NV;
-        private System.Windows.Forms.TextBox txt_Mail_NV;
-        private System.Windows.Forms.TextBox txt_Roles_NV;
-        private System.Windows.Forms.Label Roles_NV;
-        private System.Windows.Forms.Button Btn_Exit;
-        private System.Windows.Forms.TextBox txt_Salary_NV;
-        private System.Windows.Forms.Label Salary_NV;
-        private System.Windows.Forms.TextBox txt_CCCD_NV;
-        private System.Windows.Forms.Label label_CCCD;
-        private System.Windows.Forms.Label label_Email_NV;
-        private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.Label label_Address_NV;
-        private System.Windows.Forms.RadioButton rdbnu;
-        private System.Windows.Forms.RadioButton rdbnam;
         private System.Windows.Forms.ComboBox cbb_BP;
         private System.Windows.Forms.ComboBox cbb_PB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rdbnu;
+        private System.Windows.Forms.RadioButton rdbnam;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.Label label_Address_NV;
+        private System.Windows.Forms.Label label_Email_NV;
+        private System.Windows.Forms.TextBox txt_CCCD_NV;
+        private System.Windows.Forms.Label label_CCCD;
+        private System.Windows.Forms.TextBox txt_Salary_NV;
+        private System.Windows.Forms.Label Salary_NV;
+        private System.Windows.Forms.TextBox txt_Roles_NV;
+        private System.Windows.Forms.Label Roles_NV;
+        private System.Windows.Forms.TextBox txt_Phone_NV;
+        private System.Windows.Forms.Label Phone_NV;
+        private System.Windows.Forms.TextBox txt_Mail_NV;
+        private System.Windows.Forms.MaskedTextBox txt_Birth_NV;
+        private System.Windows.Forms.Label Birth_NV;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_Name_NV;
+        private System.Windows.Forms.Label Name_NV;
+        private System.Windows.Forms.Label QLNV_label;
+        private System.Windows.Forms.Button Btn_Add_NV;
     }
 }
