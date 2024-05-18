@@ -68,3 +68,6 @@ C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.pdb
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.DangNhap.resources
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmAddBacSi.resources
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmAddNhanVien.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.DangNhap.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmAddBacSi.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmAddNhanVien.resources
