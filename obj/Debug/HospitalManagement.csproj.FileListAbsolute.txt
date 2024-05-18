@@ -44,3 +44,25 @@ C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\ob
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BacSi_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
+D:\workplace\BM_CSDL\QLBV\bin\Debug\HospitalManagement.exe.config
+D:\workplace\BM_CSDL\QLBV\bin\Debug\HospitalManagement.exe
+D:\workplace\BM_CSDL\QLBV\bin\Debug\HospitalManagement.pdb
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.csproj.AssemblyReference.cache
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.BacSi.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.BacSi_ToaThuoc.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.BenhNhan.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.ChiTietToaThuocForm.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.frmMedicalExaminationDetails.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.frmServices.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.NhanVien.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.PhongBan.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.Properties.Resources.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.ThuocForm.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.ToaThuocForm.resources
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.csproj.GenerateResource.cache
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.csproj.CoreCompileInputs.cache
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.exe
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.pdb
+D:\workplace\BM_CSDL\QLBV\obj\Debug\HospitalManagement.DangNhap.resources

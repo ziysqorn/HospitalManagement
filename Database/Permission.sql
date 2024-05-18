@@ -63,7 +63,7 @@ grant select, insert, update on ChiTietKhamBenh to BacSi
 grant select on BenhNhan (ID, Name, PersonalID) to NVBanThuoc
 grant select on Thuoc to NVBanThuoc
 grant select on ChiTietToaThuoc to NVBanThuoc
-grant select on ToaThuoc to NVBanThuoc 
+grant select,update on ToaThuoc to NVBanThuoc 
 grant select on ChiTietKhamBenh to NVBanThuoc 
 deny select on ChiTietKhamBenh (Description) to NVBanThuoc 
 -- Role NVKeToan

@@ -12,7 +12,7 @@ namespace HospitalManagement
 	{
 		private SqlConnection connection;
 		public SqlCommand command;
-		private string connectionString = "Data Source=.;Initial Catalog=HospitalManagement;Integrated Security=True";
+		private string connectionString = "Data Source=DESKTOP-0LKMS10\\SQLEXPRESS;Initial Catalog=HospitalManagement;Integrated Security=True";
 		public DatabaseSetup()
 		{
 			connection = new SqlConnection(connectionString);
@@ -21,7 +21,7 @@ namespace HospitalManagement
 		}
 		public DatabaseSetup(string username, string password)
 		{
-			connectionString = $"Data Source=.;Initial Catalog=HospitalManagement;User ID={username};Password={password}";
+			connectionString = $"Data Source=DESKTOP-0LKMS10\\SQLEXPRESS;Initial Catalog=HospitalManagement;User ID={username};Password={password}";
 			connection = new SqlConnection(connectionString);
 			command = new SqlCommand();
 			command.Connection = connection;
@@ -42,6 +42,7 @@ namespace HospitalManagement
 				dataAdapter.Fill(dataTable);
 				return dataTable;
 			}
+
 		}
 		public bool CheckConnection()
 		{

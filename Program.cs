@@ -16,7 +16,7 @@ namespace HospitalManagement
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmMedicalExaminationDetails());
+			Application.Run(new DangNhap());
 		}
 	}
 }

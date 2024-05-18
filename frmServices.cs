@@ -13,6 +13,8 @@ namespace HospitalManagement
 {
     public partial class frmServices : Form
     {
+		string username = "NVtieptan";
+		string password = "NVTT@0711";
         public frmServices()
         {
             InitializeComponent();

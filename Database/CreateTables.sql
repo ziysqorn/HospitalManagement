@@ -84,10 +84,13 @@ foreign key (PhongKhamID) references PhongKham(ID)
 create table ToaThuoc(
 ID int identity(1,1) primary key,
 PayDate date,
+TotalPrice int,
 BenhNhanID int,
 NhanVienID int,
+CTKB_ID int,
 foreign key (BenhNhanID) references BenhNhan(ID),
-foreign key (NhanVienID) references NhanVien(ID)
+foreign key (NhanVienID) references NhanVien(ID),
+foreign key (CTKB_ID) references ChiTietKhamBenh(ID)
 )
 
 create table ChiTietKhamBenh(
@@ -120,3 +123,6 @@ foreign key (ChiTietID) references ChiTietKhamBenh(ID),
 foreign key (DichVuID) references DVKhamBenh(ID)
 )
 
+alter table Toathuoc ADD TotalPrice int;
+Alter table ToaThuoc
+Add constraint fk_toathuoc_ctkb foreign key (CTKB_ID) references ChiTietKhamBenh(ID);
