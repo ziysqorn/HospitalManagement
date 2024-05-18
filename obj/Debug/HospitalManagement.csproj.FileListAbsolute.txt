@@ -45,3 +45,5 @@ C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\ob
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ThongTinChiTietKB.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.DangNhap.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ComboBoxItem.resources

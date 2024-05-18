@@ -297,6 +297,7 @@
 			this.Name = "frmMedicalExaminationDetails";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "frmMedicalExaminationDetails";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMedicalExaminationDetails_FormClosed);
 			this.Load += new System.EventHandler(this.frmMedicalExaminationDetails_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();

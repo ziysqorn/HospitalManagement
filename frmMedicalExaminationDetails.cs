@@ -11,66 +11,68 @@ using System.Windows.Forms;
 
 namespace HospitalManagement
 {
-    public partial class frmMedicalExaminationDetails : Form
+    public partial class frmMedicalExaminationDetails : HospitalManagement.BaseForm
     {
         public int currentDoctor = 1;
         private int selectedPatience = -1;
-        public frmMedicalExaminationDetails()
-        {
-            InitializeComponent();
-        }
+
+        public frmMedicalExaminationDetails() 
+		{
+			InitializeComponent();
+		}
+
+		public frmMedicalExaminationDetails(string username, string password, int doctor, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			currentDoctor = doctor;
+			PersonRole = role;
+			dangNhap = DN;	
+		}
+
+		public frmMedicalExaminationDetails(string username, string password, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+			dangNhap = DN;
+		}
 
 		private void frmMedicalExaminationDetails_Load(object sender, System.EventArgs e)
 		{
-			DatabaseSetup db = new DatabaseSetup();
+			DatabaseSetup db = new DatabaseSetup(Username, Password);
 			try
 			{
 				db.OpenConnection();
 				if (db.CheckConnection())
 				{
-					try
-					{
-						DataTable dt = new DataTable();
-						db.command.CommandText = $"Select ChiTietKhamBenh.ID as N'Mã chi tiết', BacSi.ID as N'Mã bác sĩ', BacSi.Name as N'Bác sĩ khám', BenhNhan.ID as N'Mã bệnh nhân', BenhNhan.Name as N'Bệnh nhân được khám', Description, NgayKham, TotalPrice from ChiTietKhamBenh join BacSi on BacSi.ID = ChiTietKhamBenh.BacSiID join BenhNhan on BenhNhan.ID = ChiTietKhamBenh.BenhNhanID where BacSiID = {currentDoctor}";
-						SqlDataReader reader = db.command.ExecuteReader();
-						dt.Load(reader);
-						dGV_CTKB.DataSource = dt;
-					}
-					catch (Exception ex)
-					{
-						MessageBox.Show(ex.Message, "Thông báo");
-					}
+					DataTable dt = new DataTable();
+					db.command.CommandText = $"Select ChiTietKhamBenh.ID as N'Mã chi tiết', BacSi.ID as N'Mã bác sĩ', BacSi.Name as N'Bác sĩ khám', BenhNhan.ID as N'Mã bệnh nhân', BenhNhan.Name as N'Bệnh nhân được khám', Description, NgayKham, TotalPrice from ChiTietKhamBenh join BacSi on BacSi.ID = ChiTietKhamBenh.BacSiID join BenhNhan on BenhNhan.ID = ChiTietKhamBenh.BenhNhanID where BacSiID = {currentDoctor}";
+					SqlDataReader reader = db.command.ExecuteReader();
+					dt.Load(reader);
+					dGV_CTKB.DataSource = dt;
 				} else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 				db.CloseConnection();
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message, "Thông báo");
-			}
-			try
-			{
 				db.OpenConnection();
 				if (db.CheckConnection())
 				{
-					try
-					{
-						DataTable dt = new DataTable();
-						db.command.CommandText = $"Select ID, Name from BenhNhan";
-						SqlDataReader reader = db.command.ExecuteReader();
-						dt.Load(reader);
-						dGV_BenhNhan.DataSource = dt;
-					}
-					catch(Exception ex)
-					{
-						MessageBox.Show(ex.Message, "Thông báo");
-					}
+					DataTable dt = new DataTable();
+					db.command.CommandText = $"Select ID, Name from BenhNhan";
+					SqlDataReader reader = db.command.ExecuteReader();
+					dt.Load(reader);
+					dGV_BenhNhan.DataSource = dt;
 				}
 				else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 				db.CloseConnection();
+				dangNhap.Hide();
 			}
 			catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Thông báo");
+				db.CloseConnection();
+				this.Close();
 			}	
 		}
 
@@ -99,14 +101,12 @@ namespace HospitalManagement
 		{
 			if (datePicker.Text != "" && txtDesciption.Text != "" && txtPrice.Text != "" && selectedPatience > 0)
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();
 					if (db.CheckConnection())
 					{
-						try
-						{
 							db.command.CommandText = $"Insert into ChiTietKhamBenh values ({currentDoctor}, {selectedPatience}, null, N'{txtDesciption.Text}', '{datePicker.Value.ToString("yyyy-MM-dd")}', {txtPrice.Text})";
 							if (db.command.ExecuteNonQuery() > 0)
 							{
@@ -118,11 +118,6 @@ namespace HospitalManagement
 								this.OnLoad(e);
 							}
 							else MessageBox.Show("Không thể thêm mới dữ liệu !", "Thông báo");
-						}
-						catch(Exception ex)
-						{
-							MessageBox.Show(ex.Message, "Thông báo");
-						}
 					}
 					else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 					db.CloseConnection();
@@ -130,6 +125,7 @@ namespace HospitalManagement
 				catch(Exception ex)
 				{
 					MessageBox.Show(ex.Message, "Thông báo");
+					db.CloseConnection();
 				}
 			}
 			else MessageBox.Show("Vui lòng điền đủ thông tin !", "Thông báo");
@@ -143,14 +139,12 @@ namespace HospitalManagement
 			}
 			else
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();
 					if (db.CheckConnection())
 					{
-						try
-						{
 							string toUpdate = "";
 							if (txtDesciption.Text != "") toUpdate = toUpdate + $"Description = N'{txtDesciption.Text}',";
 							if (txtPrice.Text != "") toUpdate = toUpdate + $"TotalPrice = {txtPrice.Text},";
@@ -167,11 +161,6 @@ namespace HospitalManagement
 								this.OnLoad(e);
 							}
 							else MessageBox.Show("Không thể sửa dữ liệu !", "Thông báo");
-						}
-						catch (Exception ex)
-						{
-							MessageBox.Show(ex.Message, "Thông báo");
-						}
 					}
 					else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 					db.CloseConnection();
@@ -179,20 +168,19 @@ namespace HospitalManagement
 				catch (Exception ex)
 				{
 					MessageBox.Show(ex.Message, "Thông báo");
+					db.CloseConnection();
 				}
 			}
 		}
 
 		private void btnSuaNgay_Click(object sender, EventArgs e)
 		{
-			DatabaseSetup db = new DatabaseSetup();
+			DatabaseSetup db = new DatabaseSetup(Username, Password);
 			try
 			{
 				db.OpenConnection();
 				if (db.CheckConnection())
 				{
-					try
-					{
 						db.command.CommandText = $"Update ChiTietKhamBenh set NgayKham = '{datePicker.Value.ToString("yyyy-MM-dd")}'";
 						if (db.command.ExecuteNonQuery() > 0)
 						{
@@ -204,13 +192,8 @@ namespace HospitalManagement
 							this.OnLoad(e);
 						}
 						else MessageBox.Show("Không thể sửa dữ liệu !", "Thông báo");
-					}
-					catch (Exception ex)
-					{
-						MessageBox.Show(ex.Message, "Thông báo");
-					}
 				} 
-				else MessageBox.Show("Lỗi kết nối !", "Thông tibáon");
+				else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 				db.CloseConnection();
 			}
 			catch(Exception ex)
@@ -225,6 +208,11 @@ namespace HospitalManagement
 			ctkb.Show();
 			ctkb.BringToFront();
 			this.Hide();
+		}
+
+		private void frmMedicalExaminationDetails_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			dangNhap.Show();
 		}
 	}
 }

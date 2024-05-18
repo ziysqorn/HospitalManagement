@@ -46,6 +46,7 @@ Sex bit,
 Email varchar(100) unique,
 Salary varbinary(max)
 )
+select COUNT(*) from BacSi where PersonalID = 'BS008'
 
 create table BoPhan(
 ID int identity(1,1) primary key,
@@ -133,4 +134,5 @@ DichVuID int,
 foreign key (ChiTietID) references ChiTietKhamBenh(ID),
 foreign key (DichVuID) references DVKhamBenh(ID)
 )
-Select ID from ToaThuoc where CTKB_ID = 2
+Insert into ChiTietToaThuoc values (5, '', 2, (Select ID from ToaThuoc where ToaThuoc.CTKB_ID = 6))
+Update ChiTietToaThuoc set ThuocID = 2 where ToaThuocID = (Select ID from ToaThuoc where ToaThuoc.CTKB_ID = 6) and ThuocID = 1
