@@ -44,6 +44,7 @@ C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\ob
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BacSi_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.BenhNhan_ToaThuoc.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.NhanVien_ToaThuoc.resources
+<<<<<<< HEAD
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.exe.config
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.exe
 C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\bin\Debug\HospitalManagement.pdb
@@ -71,3 +72,8 @@ C:\Users\FPTSHOP\Desktop\BMCSDL_NHAN\obj\Debug\HospitalManagement.frmAddNhanVien
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.DangNhap.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmAddBacSi.resources
 C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.frmAddNhanVien.resources
+=======
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ThongTinChiTietKB.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.DangNhap.resources
+C:\Users\Admin\Desktop\BMCSDL\Đồ án cuối kì_Nhóm 4\HospitalManagement\obj\Debug\HospitalManagement.ComboBoxItem.resources
+>>>>>>> Quan

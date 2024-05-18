@@ -93,6 +93,7 @@ foreign key (NhanVienID) references NhanVien(ID),
 foreign key (CTKB_ID) references ChiTietKhamBenh(ID)
 )
 
+
 create table ChiTietKhamBenh(
 ID int identity(1,1) primary key,
 BacSiID int,
@@ -122,7 +123,3 @@ DichVuID int,
 foreign key (ChiTietID) references ChiTietKhamBenh(ID),
 foreign key (DichVuID) references DVKhamBenh(ID)
 )
-
-alter table Toathuoc ADD TotalPrice int;
-Alter table ToaThuoc
-Add constraint fk_toathuoc_ctkb foreign key (CTKB_ID) references ChiTietKhamBenh(ID);

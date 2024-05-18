@@ -62,6 +62,8 @@ grant select on ChiTietToaThuoc to BacSi
 grant select on Thuoc to BacSi
 grant select on DVKhamBenh to BacSi
 grant select on ChiTietKhamBenh_DV to BacSi
+grant select on BenhNhan to BacSi
+grant select on BacSi (ID, Name) to BacSi
 grant select, insert, update on ChiTietKhamBenh to BacSi
 -- Role NVBanThuoc
 grant select on BenhNhan (ID, Name, PersonalID) to NVBanThuoc

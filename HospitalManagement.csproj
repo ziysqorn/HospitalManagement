@@ -58,6 +58,9 @@
     <Compile Include="BacSi_ToaThuoc.Designer.cs">
       <DependentUpon>BacSi_ToaThuoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +133,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThongTinChiTietKB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinChiTietKB.Designer.cs">
+      <DependentUpon>ThongTinChiTietKB.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThuocForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,12 +169,15 @@
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmAddBacSi.resx">
       <DependentUpon>frmAddBacSi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddNhanVien.resx">
       <DependentUpon>frmAddNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> Quan
     <EmbeddedResource Include="frmMedicalExaminationDetails.resx">
       <DependentUpon>frmMedicalExaminationDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +203,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ThongTinChiTietKB.resx">
+      <DependentUpon>ThongTinChiTietKB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThuocForm.resx">
       <DependentUpon>ThuocForm.cs</DependentUpon>
     </EmbeddedResource>
