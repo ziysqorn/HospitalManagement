@@ -36,6 +36,10 @@ grant select, update, insert, delete on NhanVien to QLTaiNguyen
 grant select, update, insert, delete on CaTrucPhong to QLTaiNguyen
 deny update (Salary) on BacSi to QLTaiNguyen
 deny update (Salary) on NhanVien to QLTaiNguyen
+-- cho sai` stored
+GRANT EXECUTE ON OBJECT::dbo.PROC_CREATE_NV TO QLTaiNguyen;
+GRANT EXECUTE ON OBJECT::dbo.PROC_CREATE_BS TO QLTaiNguyen;
+
 -- Role QLTaiVu
 grant insert, select on Thuoc to QLTaiVu
 grant update on Thuoc (Price) to QLTaiVu
@@ -71,3 +75,8 @@ grant select on BacSi (ID, Name, PhoneNumber, Salary) to NVKeToan
 grant update on BacSi (Salary) to NVKeToan
 grant select on NhanVien (ID, Name, PhoneNumber, Salary) to NVKeToan
 grant update on NhanVien (Salary) to NVKeToan
+-- cho sai` stored
+GRANT EXECUTE ON OBJECT::dbo.PROC_READ_NV TO NVKeToan;
+GRANT EXECUTE ON OBJECT::dbo.PROC_UPDATE_NV TO NVKeToan;
+GRANT EXECUTE ON OBJECT::dbo.PROC_READ_BS TO NVKeToan;
+GRANT EXECUTE ON OBJECT::dbo.PROC_UPDATE_BS TO NVKeToan;

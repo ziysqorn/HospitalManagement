@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HospitalManagement
 {
@@ -39,7 +40,16 @@ namespace HospitalManagement
 			{
 				SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
 				DataTable dataTable = new DataTable();
-				dataAdapter.Fill(dataTable);
+				try
+				{
+                    dataAdapter.Fill(dataTable);
+                    return dataTable;
+
+                }
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
 				return dataTable;
 			}
 

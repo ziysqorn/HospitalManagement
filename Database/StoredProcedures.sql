@@ -63,7 +63,8 @@ BEGIN
 	Close Symmetric Key SymKey
 END
 
-exec PROC_READ_NV 3
+
+exec PROC_READ_NV
 ------------------------------------------------------
 create proc PROC_UPDATE_NV
     @NhanVienID INT,
