@@ -78,6 +78,7 @@ grant select on BacSi (ID, Name) to BacSi
 grant select, insert, update on ChiTietKhamBenh to BacSi
 grant select, insert, update, delete on ChiTietKhamBenh_DV to BacSi
 grant select, insert, update, delete on ChiTietToaThuoc to BacSi
+grant select, insert, update, delete on ToaThuoc to BacSi
 -- Role NVBanThuoc
 grant select on BenhNhan (ID, Name, PersonalID) to NVBanThuoc
 grant select on Thuoc to NVBanThuoc

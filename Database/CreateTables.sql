@@ -95,7 +95,7 @@ foreign key (NhanVienID) references NhanVien(ID),
 ALTER TABLE ToaThuoc
 ADD CONSTRAINT FK_ToaThuoc_CTKB FOREIGN KEY (CTKB_ID)
     REFERENCES ChiTietKhamBenh(ID);
-
+	Select COUNT(*) from NhanVien where PersonalId = 'NV002' and PhongBanID = 1 and BoPhanID IS NULL
 create table ChiTietKhamBenh(
 ID int identity(1,1) primary key,
 BacSiID int,
