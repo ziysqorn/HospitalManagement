@@ -27,9 +27,14 @@ namespace HospitalManagement
 			command = new SqlCommand();
 			command.Connection = connection;
 		}
-		~DatabaseSetup() { connection.Close(); }
-		public void OpenConnection() { connection.Open(); }
-		public void CloseConnection() { connection.Close(); }
+		public void OpenConnection() 
+		{ 
+			if(connection.State != ConnectionState.Open) connection.Open();
+		}
+		public void CloseConnection() 
+		{ 
+			if( connection.State != ConnectionState.Closed) connection.Close();
+		}
 		public SqlConnection GetConnection()
 		{
 			return new SqlConnection(connectionString);

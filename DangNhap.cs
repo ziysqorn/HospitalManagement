@@ -115,11 +115,11 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and PhongBanID = 1";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 1 and BoPhanID IS NULL";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
-											frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails();
+											frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVTaiVu, this);
 											CTKB.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -140,13 +140,13 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 3";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 1 and BoPhanID = 3";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
-											BacSi bs = new BacSi();
-											NhanVien nv = new NhanVien();
+											BacSi bs = new BacSi(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVKeToan, this);
 											bs.Show();
+											NhanVien nv = new NhanVien(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVKeToan, this);
 											nv.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -168,11 +168,11 @@ namespace HospitalManagement
 								db.OpenConnection();
 								if (db.CheckConnection())
 								{
-									db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and PhongBanID = 2";
+									db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 2 and BoPhanID IS NULL";
 									int count = (int)db.command.ExecuteScalar();
 									if (count > 0)
 									{
-										ToaThuocForm toathuoc = new ToaThuocForm();
+										ToaThuocForm toathuoc = new ToaThuocForm(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVBanThuoc, this);
 										toathuoc.Show();
 									}
 									else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -197,13 +197,13 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 4";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
-												BacSi bs = new BacSi();
-												NhanVien nv = new NhanVien();
-												PhongBan phongban = new PhongBan();
+												BacSi bs = new BacSi(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
+												NhanVien nv = new NhanVien(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
+												PhongBan phongban = new PhongBan(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
 												bs.Show();
 												nv.Show();
 												phongban.Show();
@@ -226,12 +226,12 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 5";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
-												frmServices service = new frmServices();
-												ThuocForm thuoc = new ThuocForm();
+												frmServices service = new frmServices(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiVu, this);
+												ThuocForm thuoc = new ThuocForm(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiVu, this);
 												service.Show();
 												thuoc.Show();	
 											}
@@ -253,14 +253,12 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 6";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
-												frmServices service = new frmServices();
-												ThuocForm thuoc = new ThuocForm();
-												service.Show();
-												thuoc.Show();
+												frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLChuyenMon, this);
+												CTKB.Show();
 											}
 											else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
 										}
@@ -284,14 +282,12 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 2";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 4 and BoPhanID = 2";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
-											BacSi bs = new BacSi();
-											NhanVien nv = new NhanVien();
-											bs.Show();
-											nv.Show();
+											BenhNhan benhNhan = new BenhNhan(txtUsername.Text, txtPassword.Text, BaseForm.Role.BoPhanTiepTan, this);
+											benhNhan.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
 									}
@@ -373,7 +369,7 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and PhongBanID = 1";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 1 and BoPhanID IS NULL";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
@@ -383,7 +379,7 @@ namespace HospitalManagement
 											db.command.ExecuteNonQuery();
 											db.CloseConnection();
 											MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
-											frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails();
+											frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVTaiVu, this);
 											CTKB.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -404,7 +400,7 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 3";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and BoPhanID = 3 and PhongBanID = 1";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
@@ -413,9 +409,10 @@ namespace HospitalManagement
 											db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE NVKeToan ADD MEMBER {txtUsername.Text}";
 											db.command.ExecuteNonQuery();
 											db.CloseConnection();
-											BacSi bs = new BacSi();
-											NhanVien nv = new NhanVien();
+											MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+											BacSi bs = new BacSi(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVKeToan, this);
 											bs.Show();
+											NhanVien nv = new NhanVien(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVKeToan, this);
 											nv.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -437,7 +434,7 @@ namespace HospitalManagement
 								db.OpenConnection();
 								if (db.CheckConnection())
 								{
-									db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and PhongBanID = 2";
+									db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 2 and BoPhanID IS NULL";
 									int count = (int)db.command.ExecuteScalar();
 									if (count > 0)
 									{
@@ -446,7 +443,8 @@ namespace HospitalManagement
 										db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE NVBanThuoc ADD MEMBER {txtUsername.Text}";
 										db.command.ExecuteNonQuery();
 										db.CloseConnection();
-										ToaThuocForm toathuoc = new ToaThuocForm();
+										MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+										ToaThuocForm toathuoc = new ToaThuocForm(txtUsername.Text, txtPassword.Text, BaseForm.Role.NVBanThuoc, this);
 										toathuoc.Show();
 									}
 									else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -471,7 +469,7 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 4";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
@@ -480,9 +478,10 @@ namespace HospitalManagement
 												db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE QLTaiNguyen ADD MEMBER {txtUsername.Text}";
 												db.command.ExecuteNonQuery();
 												db.CloseConnection();
-												BacSi bs = new BacSi();
-												NhanVien nv = new NhanVien();
-												PhongBan phongban = new PhongBan();
+												MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+												BacSi bs = new BacSi(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
+												NhanVien nv = new NhanVien(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
+												PhongBan phongban = new PhongBan(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiNguyen, this);
 												bs.Show();
 												nv.Show();
 												phongban.Show();
@@ -505,7 +504,7 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 5";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
@@ -514,8 +513,9 @@ namespace HospitalManagement
 												db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE QLTaiVu ADD MEMBER {txtUsername.Text}";
 												db.command.ExecuteNonQuery();
 												db.CloseConnection();
-												frmServices service = new frmServices();
-												ThuocForm thuoc = new ThuocForm();
+												MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+												frmServices service = new frmServices(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiVu, this);
+												ThuocForm thuoc = new ThuocForm(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLTaiVu, this);
 												service.Show();
 												thuoc.Show();
 											}
@@ -537,7 +537,7 @@ namespace HospitalManagement
 										db.OpenConnection();
 										if (db.CheckConnection())
 										{
-											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 1";
+											db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 3 and BoPhanID = 6";
 											int count = (int)db.command.ExecuteScalar();
 											if (count > 0)
 											{
@@ -546,7 +546,8 @@ namespace HospitalManagement
 												db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE QLChuyenMon ADD MEMBER {txtUsername.Text}";
 												db.command.ExecuteNonQuery();
 												db.CloseConnection();
-												frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails();
+												MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+												frmMedicalExaminationDetails CTKB = new frmMedicalExaminationDetails(txtUsername.Text, txtPassword.Text, BaseForm.Role.QLChuyenMon, this);
 												CTKB.Show();
 											}
 											else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");
@@ -571,7 +572,7 @@ namespace HospitalManagement
 									db.OpenConnection();
 									if (db.CheckConnection())
 									{
-										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalID = '{txtUsername.Text}' and BoPhanID = 2";
+										db.command.CommandText = $"Select COUNT(*) from NhanVien where PersonalId = '{txtUsername.Text}' and PhongBanID = 4 and BoPhanID = 2";
 										int count = (int)db.command.ExecuteScalar();
 										if (count > 0)
 										{
@@ -580,9 +581,8 @@ namespace HospitalManagement
 											db.command.CommandText = $"CREATE LOGIN {txtUsername.Text} WITH PASSWORD = '{txtPassword.Text}' CREATE USER {txtUsername.Text} FOR LOGIN {txtUsername.Text} ALTER ROLE BoPhanTiepTan ADD MEMBER {txtUsername.Text}";
 											db.command.ExecuteNonQuery();
 											db.CloseConnection();
-											BenhNhan benhNhan = new BenhNhan();
-											frmServices services = new frmServices();	
-											services.Show();
+											MessageBox.Show("Đăng kí tài khoản thành công !", "Thông báo");
+											BenhNhan benhNhan = new BenhNhan(txtUsername.Text, txtPassword.Text, BaseForm.Role.BoPhanTiepTan, this);
 											benhNhan.Show();
 										}
 										else MessageBox.Show("Thông tin nhân viên không tồn tại trong hệ thống !", "Thông báo");

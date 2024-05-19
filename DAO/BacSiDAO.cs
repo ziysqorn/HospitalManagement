@@ -26,45 +26,56 @@ namespace HospitalManagement.DAO
 
         public void loadBacSiList(DataGridView dataGridView)
         {
-            dataGridView.CellFormatting -= dataGridView_CellFormatting;
-            dataGridView.CellFormatting -= dataGridView_CellFormattingGiaiMa;
-
-
-            string query = "SELECT ID, [NAME], DateOfBirth, PersonalID, PhoneNumber, [Address], Sex, Email, Salary FROM BacSi;";
-            DataTable data = dbconnect.ExecuteSelectQuery(query);
-
-            // Xóa các cột hiện có trong DataGridView nếu có
-            dataGridView.Columns.Clear();
-
-            // Thêm các cột vào DataGridView và đặt tên cho từng cột
-            foreach (DataColumn column in data.Columns)
+            try
             {
-                dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
-            }
-
-            // Đổi tên của các cột nếu cần thiết
-            dataGridView.Columns["ID"].HeaderText = "Mã Bác Sĩ";
-            dataGridView.Columns["Name"].HeaderText = "Tên Bác Sĩ";
-            dataGridView.Columns["DateOfBirth"].HeaderText = "Ngày Sinh";
-            dataGridView.Columns["PersonalID"].HeaderText = "CMND";
-            dataGridView.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
-            dataGridView.Columns["Address"].HeaderText = "Địa Chỉ";
-            dataGridView.Columns["Sex"].HeaderText = "Giới Tính";
-            dataGridView.Columns["Email"].HeaderText = "Email";
-            dataGridView.Columns["Salary"].HeaderText = "Lương";
-            dataGridView.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MM/yyyy";
+				dataGridView.CellFormatting -= dataGridView_CellFormatting;
+				dataGridView.CellFormatting -= dataGridView_CellFormattingGiaiMa;
 
 
-            // Thêm các hàng vào DataGridView
-            foreach (DataRow row in data.Rows)
+				string query = "SELECT ID, [NAME], DateOfBirth, PersonalID, PhoneNumber, [Address], Sex, Email, Salary FROM BacSi;";
+				DataTable data = dbconnect.ExecuteSelectQuery(query);
+
+				// Xóa các cột hiện có trong DataGridView nếu có
+				dataGridView.Columns.Clear();
+
+				// Thêm các cột vào DataGridView và đặt tên cho từng cột
+				foreach (DataColumn column in data.Columns)
+				{
+					dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
+				}
+
+                if(dataGridView.Columns.Count > 0)
+                {
+					// Đổi tên của các cột nếu cần thiết
+					dataGridView.Columns["ID"].HeaderText = "Mã Bác Sĩ";
+					dataGridView.Columns["Name"].HeaderText = "Tên Bác Sĩ";
+					dataGridView.Columns["DateOfBirth"].HeaderText = "Ngày Sinh";
+					dataGridView.Columns["PersonalID"].HeaderText = "CMND";
+					dataGridView.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
+					dataGridView.Columns["Address"].HeaderText = "Địa Chỉ";
+					dataGridView.Columns["Sex"].HeaderText = "Giới Tính";
+					dataGridView.Columns["Email"].HeaderText = "Email";
+					dataGridView.Columns["Salary"].HeaderText = "Lương";
+					dataGridView.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MM/yyyy";
+				}
+
+
+				// Thêm các hàng vào DataGridView
+				foreach (DataRow row in data.Rows)
+				{
+					dataGridView.Rows.Add(row.ItemArray);
+				}
+
+				// Đăng ký sự kiện CellFormatting để định dạng lại giá trị của cột Sex
+				dataGridView.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView_CellFormatting);
+
+			}
+            catch(Exception ex)
             {
-                dataGridView.Rows.Add(row.ItemArray);
-            }
-
-            // Đăng ký sự kiện CellFormatting để định dạng lại giá trị của cột Sex
-            dataGridView.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView_CellFormatting);
-
-        }
+				MessageBox.Show(ex.Message, "Thông báo");
+				dataGridView.FindForm().Close();
+			}
+		}
 
 
         private static void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -93,39 +104,35 @@ namespace HospitalManagement.DAO
 
         public bool AddBacSi(string name, DateTime dateOfBirth, string personalID, string phoneNumber, string address, bool sex, string email, int salary)
         {
-
-            
-
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
 
-                using (SqlCommand command = new SqlCommand("PROC_CREATE_BS", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    // them cac tham so
-                    
-                    command.Parameters.AddWithValue("@Name", name);
-                    command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
-                    command.Parameters.AddWithValue("@PersonalID", personalID);
-                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    command.Parameters.AddWithValue("@Address", address);
-                    command.Parameters.AddWithValue("@Sex", sex);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Salary", salary);
+					using (SqlCommand command = new SqlCommand("PROC_CREATE_BS", connection))
+					{
+						command.CommandType = CommandType.StoredProcedure;
+						// them cac tham so
 
-                    try
-                    {
-                        connection.Open();
-                        int result = command.ExecuteNonQuery();
-                        return result > 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                }
-            }
+						command.Parameters.AddWithValue("@Name", name);
+						command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+						command.Parameters.AddWithValue("@PersonalID", personalID);
+						command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+						command.Parameters.AddWithValue("@Address", address);
+						command.Parameters.AddWithValue("@Sex", sex);
+						command.Parameters.AddWithValue("@Email", email);
+						command.Parameters.AddWithValue("@Salary", salary);
+						connection.Open();
+						int result = command.ExecuteNonQuery();
+						return result > 0;
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show(ex.Message, "Thông báo");
+				return false;
+			}
         }
 
 
@@ -162,9 +169,9 @@ namespace HospitalManagement.DAO
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
-                return false;
-            }
+				MessageBox.Show(ex.Message, "Thông báo");
+				return false;
+			}
         }
 
         public bool DeleteBacSi(int id)
@@ -183,57 +190,68 @@ namespace HospitalManagement.DAO
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
-                return false;
-            }
+				MessageBox.Show(ex.Message, "Thông báo");
+				return false;
+			}
         }
 
         public void loadBacSiListGiaiMa(DataGridView dataGridView)
         {
-            dataGridView.CellFormatting -= dataGridView_CellFormatting;
-            dataGridView.CellFormatting -= dataGridView_CellFormattingGiaiMa;
-
-            DataTable data;
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("PROC_READ_BS", connection);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                data = dataTable;
-            }
+				dataGridView.CellFormatting -= dataGridView_CellFormatting;
+				dataGridView.CellFormatting -= dataGridView_CellFormattingGiaiMa;
+
+				DataTable data;
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
+					SqlDataAdapter dataAdapter = new SqlDataAdapter("PROC_READ_BS", connection);
+					DataTable dataTable = new DataTable();
+					dataAdapter.Fill(dataTable);
+					data = dataTable;
+				}
 
 
-            // Xóa các cột hiện có trong DataGridView nếu có
-            dataGridView.Columns.Clear();
+				// Xóa các cột hiện có trong DataGridView nếu có
+				dataGridView.Columns.Clear();
 
-            // Thêm các cột vào DataGridView và đặt tên cho từng cột
-            foreach (DataColumn column in data.Columns)
+				// Thêm các cột vào DataGridView và đặt tên cho từng cột
+				foreach (DataColumn column in data.Columns)
+				{
+					dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
+				}
+
+                if(dataGridView.Columns.Count > 0)
+                {
+					// Đổi tên của các cột nếu cần thiết
+					dataGridView.Columns["ID"].HeaderText = "Mã Bác Sĩ";
+					dataGridView.Columns["Name"].HeaderText = "Tên Bác Sĩ";
+					dataGridView.Columns["DateOfBirth"].HeaderText = "Ngày Sinh";
+					dataGridView.Columns["PersonalID"].HeaderText = "CMND";
+					dataGridView.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
+					dataGridView.Columns["Address"].HeaderText = "Địa Chỉ";
+					dataGridView.Columns["Sex"].HeaderText = "Giới Tính";
+					dataGridView.Columns["Email"].HeaderText = "Email";
+					dataGridView.Columns["Salary"].HeaderText = "Lương";
+					dataGridView.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MM/yyyy";
+				}
+
+				// Thêm các hàng vào DataGridView
+				foreach (DataRow row in data.Rows)
+				{
+					dataGridView.Rows.Add(row.ItemArray);
+				}
+
+
+				// Đăng ký sự kiện CellFormatting để định dạng lại giá trị của cột Sex
+				dataGridView.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView_CellFormattingGiaiMa);
+
+			}
+			catch (Exception ex)
             {
-                dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
-            }
-
-            // Đổi tên của các cột nếu cần thiết
-            dataGridView.Columns["ID"].HeaderText = "Mã Bác Sĩ";
-            dataGridView.Columns["Name"].HeaderText = "Tên Bác Sĩ";
-            dataGridView.Columns["DateOfBirth"].HeaderText = "Ngày Sinh";
-            dataGridView.Columns["PersonalID"].HeaderText = "CMND";
-            dataGridView.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
-            dataGridView.Columns["Address"].HeaderText = "Địa Chỉ";
-            dataGridView.Columns["Sex"].HeaderText = "Giới Tính";
-            dataGridView.Columns["Email"].HeaderText = "Email";
-            dataGridView.Columns["Salary"].HeaderText = "Lương";
-            dataGridView.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MM/yyyy";
-
-            // Thêm các hàng vào DataGridView
-            foreach (DataRow row in data.Rows)
-            {
-                dataGridView.Rows.Add(row.ItemArray);
-            }
-
-
-            // Đăng ký sự kiện CellFormatting để định dạng lại giá trị của cột Sex
-            dataGridView.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView_CellFormattingGiaiMa);
-
+				MessageBox.Show(ex.Message, "Thông báo");
+                dataGridView.FindForm().Close();    
+			}
         }
 
 
@@ -256,41 +274,35 @@ namespace HospitalManagement.DAO
 
         public bool updateLuongBacSi(int bacSiID, string name, DateTime dateOfBirth, string personalID, string phoneNumber, string address, bool sex, string email, int salary)
         {
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
-                using (SqlCommand command = new SqlCommand("PROC_UPDATE_BS", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
+					using (SqlCommand command = new SqlCommand("PROC_UPDATE_BS", connection))
+					{
+						command.CommandType = CommandType.StoredProcedure;
 
-                    // Thêm các tham số cho stored procedure
-                    command.Parameters.AddWithValue("@BacSiID", bacSiID);
-                    command.Parameters.AddWithValue("@Name", name);
-                    command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
-                    command.Parameters.AddWithValue("@PersonalID", personalID);
-                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    command.Parameters.AddWithValue("@Address", address);
-                    command.Parameters.AddWithValue("@Sex", sex);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Salary", salary);
-
-                    try
-                    {
-                        connection.Open();
-                        int effectRows= command.ExecuteNonQuery();
-                        return effectRows > 0;
-                    }
-                    catch (SqlException ex)
-                    {
-                        // Xử lý exception ở đây (ví dụ: log lại exception, hiển thị message box...)
-                        Console.WriteLine("Error: " + ex.Message);
-                        return false;
-                    }
-                }
-            }
+						// Thêm các tham số cho stored procedure
+						command.Parameters.AddWithValue("@BacSiID", bacSiID);
+						command.Parameters.AddWithValue("@Name", name);
+						command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+						command.Parameters.AddWithValue("@PersonalID", personalID);
+						command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+						command.Parameters.AddWithValue("@Address", address);
+						command.Parameters.AddWithValue("@Sex", sex);
+						command.Parameters.AddWithValue("@Email", email);
+						command.Parameters.AddWithValue("@Salary", salary);
+						connection.Open();
+						int effectRows = command.ExecuteNonQuery();
+						return effectRows > 0;
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show(ex.Message, "Thông báo");
+				return false;
+			}
         }
-
-
-
-
     }
 }

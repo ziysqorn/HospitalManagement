@@ -29,6 +29,7 @@ namespace HospitalManagement
 		protected DangNhap dangNhap;
 		public BaseForm()
 		{
+
 		}
 	}
 }

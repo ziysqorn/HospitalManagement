@@ -9,20 +9,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static HospitalManagement.BaseForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagement
 {
-    public partial class frmAddBacSi : Form
+    public partial class frmAddBacSi : BaseForm
     {
         public frmAddBacSi()
         {
             InitializeComponent();
         }
 
-        // Tạo một sự kiện để thông báo khi quá trình thêm bác sĩ hoàn thành
-        
+		public frmAddBacSi(string username, string password, Role role)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+		}
 
-        private void btn_add_Click(object sender, EventArgs e)
+		// Tạo một sự kiện để thông báo khi quá trình thêm bác sĩ hoàn thành
+
+
+		private void btn_add_Click(object sender, EventArgs e)
         {
             string name = txt_Name_Doctor.Text.Trim();
             string personalID = txt_CCCD_Doctor.Text.Trim();
@@ -59,7 +69,7 @@ namespace HospitalManagement
                 return;
             }
 
-            BacSiDAO bacSiDAO = new BacSiDAO();
+            BacSiDAO bacSiDAO = new BacSiDAO(Username, Password);
             
             if (bacSiDAO.AddBacSi(name, dateOfBirth, personalID, phoneNumber, address, sex, email, salary))
             {
@@ -73,5 +83,8 @@ namespace HospitalManagement
             }
         }
 
-    }
+		private void frmAddBacSi_FormClosed(object sender, FormClosedEventArgs e)
+		{
+		}
+	}
 }

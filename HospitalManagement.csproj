@@ -169,15 +169,12 @@
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="frmAddBacSi.resx">
       <DependentUpon>frmAddBacSi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddNhanVien.resx">
       <DependentUpon>frmAddNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> Quan
     <EmbeddedResource Include="frmMedicalExaminationDetails.resx">
       <DependentUpon>frmMedicalExaminationDetails.cs</DependentUpon>
     </EmbeddedResource>

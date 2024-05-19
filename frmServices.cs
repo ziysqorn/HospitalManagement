@@ -8,21 +8,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HospitalManagement.BaseForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagement
 {
-    public partial class frmServices : Form
+    public partial class frmServices : BaseForm
     {
-		string username = "NVtieptan";
-		string password = "NVTT@0711";
         public frmServices()
         {
             InitializeComponent();
-        }
+		}
+
+		public frmServices(string username, string password, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+			dangNhap = DN;
+		}
 
 		private void frmServices_Load(object sender, EventArgs e)
 		{
-			DatabaseSetup db = new DatabaseSetup();
+			DatabaseSetup db = new DatabaseSetup(Username, Password);
 			try
 			{
 				db.OpenConnection();
@@ -46,6 +55,7 @@ namespace HospitalManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Thông báo");
+				this.Close();
 			}
 		}
 
@@ -62,7 +72,7 @@ namespace HospitalManagement
 		{
 			if (txtName.Text != "" && txtPrice.Text != "")
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();
@@ -101,7 +111,7 @@ namespace HospitalManagement
 			if (txtName.Text == "" && txtPrice.Text == "") MessageBox.Show("Vui lòng nhập thông tin muốn sửa !", "Thông báo");
 			else
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();

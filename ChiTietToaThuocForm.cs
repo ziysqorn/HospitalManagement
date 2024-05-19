@@ -7,27 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HospitalManagement.BaseForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagement
 {
-	public partial class ChiTietToaThuocForm : Form
+	public partial class ChiTietToaThuocForm : BaseForm
 	{
-		string username = "nhanvienBanthuoc";
-		string password = "NVBT@2203";
         private DatabaseSetup dbSetup;
         private int toaThuocID;
         public ChiTietToaThuocForm(int id)
 		{
             InitializeComponent();
-            dbSetup = new DatabaseSetup(username, password);
             toaThuocID = id;
             LoadChiTietToaThuocData();
         }
-
-        private void ChiTietToaThuocForm_Load(object sender, EventArgs e)
+		public ChiTietToaThuocForm(int id, string username, string password, Role role)
+		{
+			InitializeComponent();
+            Username = username;
+            Password = password;
+            PersonRole = role;
+			dbSetup = new DatabaseSetup(username, password);
+			toaThuocID = id;
+		}
+		private void ChiTietToaThuocForm_Load(object sender, EventArgs e)
         {
-
-        }
+			LoadChiTietToaThuocData();
+		}
         private void LoadChiTietToaThuocData()
         {
             try
@@ -35,8 +42,9 @@ namespace HospitalManagement
                 dbSetup.OpenConnection();
                 string query = @"SELECT 
                 ctt.Amount AS 'Số lượng',
+                t.Name AS 'Tên thuốc',
                 ctt.Description AS 'Mô tả',
-                t.Name AS 'Tên thuốc'
+                t.Price AS 'Giá tiền'
             FROM 
                 ChiTietToaThuoc ctt
             INNER JOIN 
@@ -62,5 +70,14 @@ namespace HospitalManagement
         {
 
         }
-    }
+
+		private void dgv_ChiTietToa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			if (dgv_ChiTietToa.Columns[e.ColumnIndex].Name == "Giá tiền" && e.Value != null)
+			{
+				e.Value = string.Format("{0:N0} VND", e.Value);
+				e.FormattingApplied = true;
+			}
+		}
+	}
 }

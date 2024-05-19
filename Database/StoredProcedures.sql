@@ -41,11 +41,14 @@ EXEC PROC_CREATE_NV
     @BoPhanID = null;
 ------------------------------------------------------
 create proc PROC_READ_NV
-@NhanVienID int = null
+@NhanVienID int = null,
+@currentNVPID varchar(20) = null
 AS
 BEGIN
     Open Symmetric Key SymKey Decryption By Certificate AESCert with password = 'Sigm@44444'
     if(@NhanVienID IS NOT NULL)
+	begin
+	if(@currentNVPID IS NULL)
 	begin
      SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
      FROM NhanVien
@@ -55,16 +58,35 @@ BEGIN
 	end
 	else
 	begin
+	 SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
+     FROM NhanVien
+	 join PhongBan on PhongBan.ID = NhanVien.PhongBanID
+	 join BoPhan on BoPhan.ID = NhanVien.BoPhanID
+	 where NhanVien.ID = @NhanVienID and NhanVien.PersonalId != @currentNVPID
+	end
+	end
+	else
+	begin
+	 if(@currentNVPID IS NULL)
+	begin
      SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
 	 FROM NhanVien
 	 join PhongBan on PhongBan.ID = NhanVien.PhongBanID
 	 join BoPhan on BoPhan.ID = NhanVien.BoPhanID
 	end
+	else
+	begin
+	 SELECT NhanVien.ID, NhanVien.Name as 'Name', DateOfBirth, Sex, PersonalId, Email, PhoneNumber, CONVERT(int, DECRYPTBYKEY(Salary)) as 'Salary', Role, Address, PhongBan.Name as 'PhongBan', BoPhan.Name as 'BoPhan'
+	 FROM NhanVien
+	 join PhongBan on PhongBan.ID = NhanVien.PhongBanID
+	 join BoPhan on BoPhan.ID = NhanVien.BoPhanID
+	 where NhanVien.PersonalId != @currentNVPID
+	end
+	end
 	Close Symmetric Key SymKey
 END
 
-
-exec PROC_READ_NV
+exec PROC_READ_NV null
 ------------------------------------------------------
 create proc PROC_UPDATE_NV
     @NhanVienID INT,
@@ -157,7 +179,7 @@ BEGIN
 	Close Symmetric Key SymKey
 END
 
-exec PROC_READ_BS 
+exec PROC_READ_BS
 ---------------------------------
 create proc PROC_UPDATE_BS
     @BacSiID INT,

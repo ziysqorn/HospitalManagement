@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HospitalManagement.BaseForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagement
 {
-	public partial class ToaThuocForm : Form
+	public partial class ToaThuocForm : BaseForm
 	{
 		private DatabaseSetup dbSetup;
 		public ToaThuocForm()
@@ -18,7 +20,16 @@ namespace HospitalManagement
 			InitializeComponent();
 			dbSetup = new DatabaseSetup("nhanvienBanThuoc", "NVBT@2203");
 		}
-        private void ToaThuocForm_Load(object sender, EventArgs e)
+		public ToaThuocForm(string username, string password, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+			dangNhap = DN;
+            dbSetup = new DatabaseSetup(Username, Password);
+		}
+		private void ToaThuocForm_Load(object sender, EventArgs e)
         {
             LoadThoathuocData();
             dgv_QLToaThuoc.RowHeaderMouseClick += dgv_QLToaThuoc_RowHeaderMouseClick;
@@ -62,14 +73,13 @@ namespace HospitalManagement
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                this.Close();
             }
         }
 
         private void Exit_Btn_Click(object sender, EventArgs e)
         {
-			DangNhap form = new DangNhap();
-            this.Hide();
-            form.Show();
+            this.Close();
         }
 
         private void dgv_QLToaThuoc_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -87,12 +97,8 @@ namespace HospitalManagement
         }
         private void DisplaySelectedRowDetails(DataGridViewRow row)
         {
-            txt_BSname_TT.Text = row.Cells["Tên bác sĩ"].Value.ToString();
-            txt_BNname_TT.Text = row.Cells["Tên bệnh nhân"].Value.ToString();
-            txt_NVname_TT.Text = row.Cells["Tên nhân viên"].Value.ToString();
             mtxt_PayDate_TT.Text = Convert.ToDateTime(row.Cells["Ngày thanh toán"].Value).ToString("dd/MM/yyyy hh:mm");
             txt_TotalPrice.Text = row.Cells["Tổng tiền"].Value.ToString();
-
         }
 
         private void Btn_Detail_ToaThuoc_Click(object sender, EventArgs e)
@@ -102,7 +108,7 @@ namespace HospitalManagement
                 DataGridViewRow selectedRow = dgv_QLToaThuoc.SelectedRows[0];
                 int selectedToaThuocID = Convert.ToInt32(selectedRow.Cells["Mã toa thuốc"].Value);
 
-                ChiTietToaThuocForm chiTietToaThuocForm = new ChiTietToaThuocForm(selectedToaThuocID);
+                ChiTietToaThuocForm chiTietToaThuocForm = new ChiTietToaThuocForm(selectedToaThuocID, Username, Password, PersonRole);
                 chiTietToaThuocForm.Show();
             }
             else
@@ -113,9 +119,6 @@ namespace HospitalManagement
         private void reLoadData()
         {
             LoadThoathuocData();
-            txt_BSname_TT.Clear();
-            txt_BNname_TT.Clear();
-            txt_NVname_TT.Clear();
             mtxt_PayDate_TT.Clear();
             txt_TotalPrice.Clear();
         }
@@ -133,7 +136,7 @@ namespace HospitalManagement
                     string payDate = Convert.ToDateTime(mtxt_PayDate_TT.Text).ToString("yyyy-MM-dd");
                     int totalPrice = Convert.ToInt32(txt_TotalPrice.Text.Replace(" VND", "").Replace(",", ""));
 
-                    string query = $"UPDATE ToaThuoc SET PayDate = '{payDate}', TotalPrice = {totalPrice} WHERE ID = {selectedToaThuocID}";
+                    string query = $"UPDATE ToaThuoc SET PayDate = '{payDate}', TotalPrice = {totalPrice}, NhanVienID = (Select ID from NhanVien where PersonalId = '{Username}') WHERE ID = {selectedToaThuocID}";
                     dbSetup.ExecuteSelectQuery(query);
 
                     MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -150,5 +153,10 @@ namespace HospitalManagement
                 MessageBox.Show("Vui lòng chọn một toa thuốc để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-    }
+
+		private void ToaThuocForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+            dangNhap.Show();
+		}
+	}
 }

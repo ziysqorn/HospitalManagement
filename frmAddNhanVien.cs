@@ -8,10 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HospitalManagement.BaseForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagement
 {
-    public partial class frmAddNhanVien : Form
+    public partial class frmAddNhanVien : BaseForm
     {
         public frmAddNhanVien()
         {
@@ -21,7 +23,15 @@ namespace HospitalManagement
             nhanVienDAO.getPhongBan(cbb_PB);
         }
 
-        private void Btn_Add_NV_Click(object sender, EventArgs e)
+		public frmAddNhanVien(string username, string password, Role role)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+		}
+
+		private void Btn_Add_NV_Click(object sender, EventArgs e)
         {
             string name = txt_Name_NV.Text.Trim();
             string personalID = txt_CCCD_NV.Text.Trim();
@@ -69,7 +79,7 @@ namespace HospitalManagement
                 return;
             }
 
-            NhanVienDAO nhanvienDAO = new NhanVienDAO();
+            NhanVienDAO nhanvienDAO = new NhanVienDAO(Username, Password);
 
             if (nhanvienDAO.AddNhanVien(name, dateOfBirth, sex, personalID, email, phoneNumber, salary, role, address, phongBanID, boPhanID))
             {
@@ -82,5 +92,11 @@ namespace HospitalManagement
             }
         }
 
-    }
+		private void frmAddNhanVien_Load(object sender, EventArgs e)
+		{
+			NhanVienDAO nhanVienDAO = new NhanVienDAO(Username, Password);
+			nhanVienDAO.getNameBoPhan(cbb_BP);
+			nhanVienDAO.getPhongBan(cbb_PB);
+		}
+	}
 }

@@ -94,11 +94,12 @@ EXEC PROC_CREATE_BS
 
 
 -- BoPhan
-INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận quản lý', 1);
-INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận tiếp tân', 2);
-INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận kế toán', 3);
-INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'BoPhan 4', 4);
-INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'BoPhan 5', 5);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận quản lý', 3);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận tiếp tân', 4);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Bộ phận kế toán', 1);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Quản lý tài nguyên', null);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Quản lý tài vụ', null);
+INSERT INTO BoPhan (Name, PhongBanID) VALUES (N'Quản lý chuyên môn', null);
 
 
 -- NhanVien
@@ -113,7 +114,7 @@ EXEC PROC_CREATE_NV
     @Role = N'Nhan Vien A',
     @Address = N'Dia chi nhan vien 1',
     @PhongBanID = 1,
-    @BoPhanID = 1;
+    @BoPhanID = 3;
 
 -- Thêm dòng dữ liệu thứ hai
 EXEC PROC_CREATE_NV 
@@ -126,8 +127,8 @@ EXEC PROC_CREATE_NV
     @Salary = 110000,
     @Role = N'Nhan Vien B',
     @Address = N'Dia chi nhan vien 2',
-    @PhongBanID = 2,
-    @BoPhanID = 2;
+    @PhongBanID = 1,
+    @BoPhanID = NULL;
 
 -- Thêm dòng dữ liệu thứ ba
 EXEC PROC_CREATE_NV 
@@ -140,8 +141,8 @@ EXEC PROC_CREATE_NV
     @Salary = 120000,
     @Role = N'Nhan Vien C',
     @Address = N'Dia chi nhan vien 3',
-    @PhongBanID = 3,
-    @BoPhanID = 3;
+    @PhongBanID = 2,
+    @BoPhanID = NULL;
 
 -- Thêm dòng dữ liệu thứ tư
 EXEC PROC_CREATE_NV 
@@ -154,7 +155,7 @@ EXEC PROC_CREATE_NV
     @Salary = 130000,
     @Role = N'Nhan Vien D',
     @Address = N'Dia chi nhan vien 4',
-    @PhongBanID = 4,
+    @PhongBanID = 3,
     @BoPhanID = 4;
 
 -- Thêm dòng dữ liệu thứ năm
@@ -168,9 +169,32 @@ EXEC PROC_CREATE_NV
     @Salary = 140000,
     @Role = N'Nhan Vien E',
     @Address = N'Dia chi nhan vien 5',
-    @PhongBanID = 5,
+    @PhongBanID = 3,
     @BoPhanID = 5;
-
+EXEC PROC_CREATE_NV 
+    @Name = N'Ten Nhan Vien 6',
+    @DateOfBirth = '1995-10-12',
+    @Sex = 1,
+    @PersonalId = 'NV006',
+    @Email = 'nhanvien6@example.com',
+    @PhoneNumber = '0987654326',
+    @Salary = 1500000,
+    @Role = N'Nhan Vien E',
+    @Address = N'Dia chi nhan vien 6',
+    @PhongBanID = 3,
+    @BoPhanID = 6;
+EXEC PROC_CREATE_NV 
+    @Name = N'Ten Nhan Vien 7',
+    @DateOfBirth = '1998-11-13',
+    @Sex = 1,
+    @PersonalId = 'NV007',
+    @Email = 'nhanvien7@example.com',
+    @PhoneNumber = '0987654327',
+    @Salary = 2000000,
+    @Role = N'Nhan Vien E',
+    @Address = N'Dia chi nhan vien 7',
+    @PhongBanID = 4,
+    @BoPhanID = 2;
 
 -- CaTrucPhong
 INSERT INTO CaTrucPhong (StartTime, EndTime, BacSiID, PhongKhamID) VALUES ('2024-05-01 08:00:00', '2024-05-01 17:00:00', 1, 1);

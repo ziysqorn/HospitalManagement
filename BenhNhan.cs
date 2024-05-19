@@ -10,24 +10,31 @@ using System.Windows.Forms;
 
 namespace HospitalManagement
 {
-    public partial class BenhNhan : Form
+    public partial class BenhNhan : BaseForm
     {
-        string username = "NVTiepTan";
-        string password = "NVTT@0711";
-
+        public DangNhap login;
         public BenhNhan()
         {
             InitializeComponent();
-            DatabaseSetup dbSetup = new DatabaseSetup("NVTiepTan", "NVTT@0711");
             LoadPatientData();
             dgv_BN.CellClick += dgv_BN_CellClick;
         }
+
+        public BenhNhan(string username, string password, Role role, DangNhap DN)
+        {
+			InitializeComponent();
+            Username = username;
+            Password = password;
+            PersonRole = role;
+            login = DN;
+			dgv_BN.CellClick += dgv_BN_CellClick;
+		}
 
         private void LoadPatientData()
          {
             try
             {
-                DatabaseSetup dbSetup = new DatabaseSetup(username, password);
+                DatabaseSetup dbSetup = new DatabaseSetup(Username, Password);
                 dbSetup.OpenConnection();
                 if (dbSetup.CheckConnection())
                 {
@@ -46,7 +53,8 @@ namespace HospitalManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo");
+                this.Close();
             }
            
          }
@@ -90,8 +98,8 @@ namespace HospitalManagement
 
             try
             {
-                DatabaseSetup dbSetup = new DatabaseSetup(username, password);
-                dbSetup.OpenConnection();
+				DatabaseSetup dbSetup = new DatabaseSetup(Username, Password);
+				dbSetup.OpenConnection();
                 if (dbSetup.CheckConnection())
                 {
                     // Thực hiện chèn dữ liệu vào bảng BenhNhan
@@ -141,8 +149,8 @@ namespace HospitalManagement
                 // Tiến hành xóa bệnh nhân từ cơ sở dữ liệu
                 try
                 {
-                    DatabaseSetup dbSetup = new DatabaseSetup(username, password);
-                    dbSetup.OpenConnection();
+					DatabaseSetup dbSetup = new DatabaseSetup(Username, Password);
+					dbSetup.OpenConnection();
                     if (dbSetup.CheckConnection())
                     {
                         // Thực hiện xóa bệnh nhân dựa trên ID
@@ -202,8 +210,8 @@ namespace HospitalManagement
 
                 try
                 {
-                    DatabaseSetup dbSetup = new DatabaseSetup(username, password);
-                    dbSetup.OpenConnection();
+					DatabaseSetup dbSetup = new DatabaseSetup(Username, Password);
+					dbSetup.OpenConnection();
                     if (dbSetup.CheckConnection())
                     {
                         string query = @"UPDATE BenhNhan SET Name = @Name, DateOfBirth = @DateOfBirth, PhoneNumber = @PhoneNumber, Address = @Address, PersonalID = @PersonalID WHERE ID = @PatientID";
@@ -243,5 +251,10 @@ namespace HospitalManagement
                 MessageBox.Show("Vui lòng chọn bệnh nhân để sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-    }
+
+		private void BenhNhan_Load(object sender, EventArgs e)
+		{
+			LoadPatientData();
+		}
+	}
 }

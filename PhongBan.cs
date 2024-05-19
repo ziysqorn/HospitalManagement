@@ -14,20 +14,24 @@ using System.Xml.Linq;
 
 namespace HospitalManagement
 {
-    public partial class PhongBan : Form
+    public partial class PhongBan : BaseForm
     {
         
         public PhongBan()
         {
             InitializeComponent();
-          
-            PhongBanDAO phongBanDAO = new PhongBanDAO();
-            phongBanDAO.loadPhongBanList(dgv_PBan);
-
         }
 
-     
-        private void groupBox1_Enter(object sender, EventArgs e)
+		public PhongBan(string username, string password, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+			dangNhap = DN;
+		}
+
+		private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -41,32 +45,39 @@ namespace HospitalManagement
 
         private void Btn_Add_PB_Click(object sender, EventArgs e)
         {
-            using (InputBoxForm inputBox = new InputBoxForm("Nhập tên phòng ban:", "Thêm phòng ban mới"))
+            try
             {
-                if (inputBox.ShowDialog() == DialogResult.OK)
-                {
-                    string phongBanName = inputBox.InputText;
-                    if (!string.IsNullOrEmpty(phongBanName))
-                    {
-                        // Xử lý thêm nhân viên với tên employeeName
-                        PhongBanDAO phongBanDAO = new PhongBanDAO();
-                        if (phongBanDAO.AddPhongBan(phongBanName))
-                        {
-                            MessageBox.Show($"Phòng ban {phongBanName} đã được thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            phongBanDAO.loadPhongBanList(dgv_PBan);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đã xảy ra lỗi!");
-                        }
+				using (InputBoxForm inputBox = new InputBoxForm("Nhập tên phòng ban:", "Thêm phòng ban mới"))
+				{
+					if (inputBox.ShowDialog() == DialogResult.OK)
+					{
+						string phongBanName = inputBox.InputText;
+						if (!string.IsNullOrEmpty(phongBanName))
+						{
+							// Xử lý thêm nhân viên với tên employeeName
+							PhongBanDAO phongBanDAO = new PhongBanDAO(Username, Password);
+							if (phongBanDAO.AddPhongBan(phongBanName))
+							{
+								MessageBox.Show($"Phòng ban {phongBanName} đã được thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+								phongBanDAO.loadPhongBanList(dgv_PBan);
+							}
+							else
+							{
+								MessageBox.Show("Đã xảy ra lỗi!");
+							}
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tên phòng ban không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+						}
+						else
+						{
+							MessageBox.Show("Tên phòng ban không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show(ex.Message, "Thông báo");
+			}
         }
 
         private void dgv_PBan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,67 +97,95 @@ namespace HospitalManagement
 
         private void Btn_Edit_PB_Click(object sender, EventArgs e)
         {
-            int ID;
-            if (int.TryParse(txt_ID_PB.Text, out ID))
+            try
             {
-                string newName = txt_Name_PB.Text;
-                if (!string.IsNullOrEmpty(newName))
-                {
-                    PhongBanDAO phongBanDAO = new PhongBanDAO();
-                    bool success = phongBanDAO.UpdatePhongBan(ID, newName);
-                    if (success)
-                    {
-                        MessageBox.Show("Tên phòng ban đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Load lại danh phong ban hoặc làm các thao tác cập nhật khác tại đây
-                        phongBanDAO.loadPhongBanList(dgv_PBan);
+				int ID;
+				if (int.TryParse(txt_ID_PB.Text, out ID))
+				{
+					string newName = txt_Name_PB.Text;
+					if (!string.IsNullOrEmpty(newName))
+					{
+						PhongBanDAO phongBanDAO = new PhongBanDAO(Username, Password);
+						bool success = phongBanDAO.UpdatePhongBan(ID, newName);
+						if (success)
+						{
+							MessageBox.Show("Tên phòng ban đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							// Load lại danh phong ban hoặc làm các thao tác cập nhật khác tại đây
+							phongBanDAO.loadPhongBanList(dgv_PBan);
 
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Tên mới không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+						}
+					}
+					else
+					{
+						MessageBox.Show("Tên mới không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				else
+				{
+					MessageBox.Show("ID phòng ban không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+            catch(Exception ex)
             {
-                MessageBox.Show("ID phòng ban không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+				MessageBox.Show(ex.Message, "Thông báo");
+			}
         }
 
         private void Btn_Del_PB_Click(object sender, EventArgs e)
         {
-            int phongBanID;
+            try
+            {
+				int phongBanID;
 
-            if (int.TryParse(txt_ID_PB.Text, out phongBanID))
+				if (int.TryParse(txt_ID_PB.Text, out phongBanID))
+				{
+					DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					if (result == DialogResult.Yes)
+					{
+						PhongBanDAO phongBanDAO = new PhongBanDAO(Username, Password);
+						bool success = phongBanDAO.DeletePhongBan(phongBanID);
+						if (success)
+						{
+							MessageBox.Show("Phòng ban đã được xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							// Load lại danh sách phòng ban hoặc làm các thao tác cập nhật khác tại đây
+							phongBanDAO.loadPhongBanList(dgv_PBan);
+							clear_input();
+						}
+					}
+				}
+				else
+				{
+					MessageBox.Show("ID phòng ban không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+            catch( Exception ex ) 
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    PhongBanDAO phongBanDAO = new PhongBanDAO();
-                    bool success = phongBanDAO.DeletePhongBan(phongBanID);
-                    if (success)
-                    {
-                        MessageBox.Show("Phòng ban đã được xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Load lại danh sách phòng ban hoặc làm các thao tác cập nhật khác tại đây
-                        phongBanDAO.loadPhongBanList(dgv_PBan);
-                        clear_input();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("ID phòng ban không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+				MessageBox.Show(ex.Message, "Thông báo");
+			}
         }
 
         private void Btn_Exit_PB_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-    }
+
+		private void PhongBan_Load(object sender, EventArgs e)
+		{
+            try
+            {
+				PhongBanDAO phongBanDAO = new PhongBanDAO(Username, Password);
+				phongBanDAO.loadPhongBanList(dgv_PBan);
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show(ex.Message, "Thông báo");
+                this.Close();
+			}
+		}
+	}
 
 
-    public class InputBoxForm : Form
+	public class InputBoxForm : Form
     {
         private Label labelPrompt;
         private TextBox textBoxInput;

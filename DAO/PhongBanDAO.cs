@@ -27,113 +27,124 @@ namespace HospitalManagement.DAO
        
         public void loadPhongBanList(DataGridView dataGridView)
         {
-            
-            string query = "select ID, [Name] from PhongBan;";
-            DataTable data =   dbconnect.ExecuteSelectQuery(query);
+			try
+			{
+				string query = "select ID, [Name] from PhongBan;";
+				DataTable data = dbconnect.ExecuteSelectQuery(query);
 
-            // Xóa các cột hiện có trong DataGridView nếu có
-            dataGridView.Columns.Clear();
+				// Xóa các cột hiện có trong DataGridView nếu có
+				dataGridView.Columns.Clear();
 
-            // Thêm các cột vào DataGridView và đặt tên cho từng cột
-            foreach (DataColumn column in data.Columns)
-            {
-                dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
-            }
+				// Thêm các cột vào DataGridView và đặt tên cho từng cột
+				foreach (DataColumn column in data.Columns)
+				{
+					dataGridView.Columns.Add(column.ColumnName, column.ColumnName);
+				}
 
-            // Đổi tên của các cột nếu cần thiết
-            dataGridView.Columns["ID"].HeaderText = "Mã Phòng";
-            
-            dataGridView.Columns["Name"].HeaderText = "Tên Phòng";
-            dataGridView.Columns["Name"].Width = 220;
+				// Đổi tên của các cột nếu cần thiết
+				if (dataGridView.Columns.Count > 0)
+				{
+					dataGridView.Columns["ID"].HeaderText = "Mã Phòng";
 
-  
+					dataGridView.Columns["Name"].HeaderText = "Tên Phòng";
+					dataGridView.Columns["Name"].Width = 220;
+				}
 
-            // Thêm các hàng vào DataGridView
-            foreach (DataRow row in data.Rows)
-            {
-                dataGridView.Rows.Add(row.ItemArray);
-            }
 
-        }
+
+				// Thêm các hàng vào DataGridView
+				foreach (DataRow row in data.Rows)
+				{
+					dataGridView.Rows.Add(row.ItemArray);
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
         public  bool AddPhongBan(string name)
         {
-            
-            string query = "INSERT INTO PhongBan ([Name]) VALUES (@Name)";
-
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", name);
+				string query = "INSERT INTO PhongBan ([Name]) VALUES (@Name)";
 
-                    try
-                    {
-                        connection.Open();
-                        int result = command.ExecuteNonQuery();
-                        return result > 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                }
-            }
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						command.Parameters.AddWithValue("@Name", name);
+						connection.Open();
+						int result = command.ExecuteNonQuery();
+						return result > 0;
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
         }
 
         public  bool UpdatePhongBan(int ID, string newName)
         {
-            
-            string query = "UPDATE PhongBan SET [Name] = @NewName WHERE ID = @ID";
-
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NewName", newName);
-                    command.Parameters.AddWithValue("@ID", ID);
+				string query = "UPDATE PhongBan SET [Name] = @NewName WHERE ID = @ID";
 
-                    try
-                    {
-                        connection.Open();
-                        int result = command.ExecuteNonQuery();
-                        return result > 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                }
-            }
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						command.Parameters.AddWithValue("@NewName", newName);
+						command.Parameters.AddWithValue("@ID", ID);
+						connection.Open();
+						int result = command.ExecuteNonQuery();
+						return result > 0;
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
         }
 
 
         public  bool DeletePhongBan(int phongBanID)
         {
-            
-            string query = "DELETE FROM PhongBan WHERE ID = @PhongBanID";
-
-            using (SqlConnection connection = dbconnect.GetConnection())
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@PhongBanID", phongBanID);
+				string query = "DELETE FROM PhongBan WHERE ID = @PhongBanID";
 
-                    try
-                    {
-                        connection.Open();
-                        int result = command.ExecuteNonQuery();
-                        return result > 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                }
-            }
+				using (SqlConnection connection = dbconnect.GetConnection())
+				{
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						command.Parameters.AddWithValue("@PhongBanID", phongBanID);
+
+						try
+						{
+							connection.Open();
+							int result = command.ExecuteNonQuery();
+							return result > 0;
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							return false;
+						}
+					}
+				}
+			}
+            catch(Exception ex)
+            {
+				MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
         }
 
     }

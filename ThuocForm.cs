@@ -12,11 +12,20 @@ using System.Windows.Forms;
 
 namespace HospitalManagement
 {
-	public partial class ThuocForm : Form
+	public partial class ThuocForm : BaseForm
 	{
 		public ThuocForm()
 		{
 			InitializeComponent();
+		}
+
+		public ThuocForm(string username, string password, Role role, DangNhap DN)
+		{
+			InitializeComponent();
+			Username = username;
+			Password = password;
+			PersonRole = role;
+			dangNhap = DN;
 		}
 
 		private void dGV_Thuoc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -30,30 +39,24 @@ namespace HospitalManagement
 
 		private void ThuocForm_Load(object sender, EventArgs e)
 		{
-			DatabaseSetup db = new DatabaseSetup();
+			DatabaseSetup db = new DatabaseSetup(Username, Password);
 			try
 			{
 				db.OpenConnection();
 				if (db.CheckConnection())
 				{
-					try
-					{
-						DataTable dt = new DataTable();
-						db.command.CommandText = "Select * from Thuoc";
-						SqlDataReader reader = db.command.ExecuteReader();
-						dt.Load(reader);
-						dGV_Thuoc.DataSource = dt;
-					}
-					catch(Exception ex)
-					{
-						MessageBox.Show(ex.Message, "Thông báo");
-					}
+					DataTable dt = new DataTable();
+					db.command.CommandText = "Select * from Thuoc";
+					SqlDataReader reader = db.command.ExecuteReader();
+					dt.Load(reader);
+					dGV_Thuoc.DataSource = dt;
 				} else MessageBox.Show("Lỗi kết nối !", "Thông báo");
 				db.CloseConnection();
 			}
 			catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Thông báo");
+				this.Close();
 			}
 		}
 
@@ -61,29 +64,22 @@ namespace HospitalManagement
 		{
 			if (txtName.Text != "" && txtPrice.Text != "")
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();
 					if (db.CheckConnection())
 					{
-						try
+						db.command.CommandText = string.Format("Insert into Thuoc (Name, Price) values (N'{0}', {1})", txtName.Text, txtPrice.Text);
+						if (db.command.ExecuteNonQuery() > 0)
 						{
-							db.command.CommandText = string.Format("Insert into Thuoc (Name, Price) values (N'{0}', {1})", txtName.Text, txtPrice.Text);
-							if (db.command.ExecuteNonQuery() > 0)
-							{
-								MessageBox.Show("Thêm dữ liệu thuốc thành công !", "Thông báo");
-								txtName.Text = "";
-								txtPrice.Text = "";
-								txtName.Focus();
-								this.OnLoad(e);
-							}
-							else MessageBox.Show("Không thể thêm dữ liệu vào hệ thống !", "Thông báo");
+							MessageBox.Show("Thêm dữ liệu thuốc thành công !", "Thông báo");
+							txtName.Text = "";
+							txtPrice.Text = "";
+							txtName.Focus();
+							this.OnLoad(e);
 						}
-						catch( Exception ex )
-						{
-							MessageBox.Show(ex.Message, "Thông báo");
-						}
+						else MessageBox.Show("Không thể thêm dữ liệu vào hệ thống !", "Thông báo");
 					}
 					db.CloseConnection();
 				}
@@ -100,33 +96,26 @@ namespace HospitalManagement
 			if (txtName.Text == "" && txtPrice.Text == "") MessageBox.Show("Vui lòng nhập thông tin muốn sửa !", "Thông báo");
 			else 
 			{
-				DatabaseSetup db = new DatabaseSetup();
+				DatabaseSetup db = new DatabaseSetup(Username, Password);
 				try
 				{
 					db.OpenConnection();
 					if (db.CheckConnection())
 					{
-						try
+						string toUpdate = "";
+						if (txtName.Text != "") toUpdate = toUpdate + $"Name = N'{txtName.Text}',";
+						if (txtPrice.Text != "") toUpdate = toUpdate + $"Price = {txtPrice.Text},";
+						toUpdate = toUpdate.Substring(0, toUpdate.Length - 1);
+						db.command.CommandText = $"Update Thuoc set {toUpdate} where ID = {dGV_Thuoc.SelectedRows[0].Cells[0].Value}";
+						if (db.command.ExecuteNonQuery() > 0)
 						{
-							string toUpdate = "";
-							if (txtName.Text != "") toUpdate = toUpdate + $"Name = N'{txtName.Text}',";
-							if (txtPrice.Text != "") toUpdate = toUpdate + $"Price = {txtPrice.Text},";
-							toUpdate = toUpdate.Substring(0, toUpdate.Length - 1);
-							db.command.CommandText = $"Update Thuoc set {toUpdate} where ID = {dGV_Thuoc.SelectedRows[0].Cells[0].Value}";
-							if (db.command.ExecuteNonQuery() > 0)
-							{
-								MessageBox.Show("Sửa dữ liệu thuốc thành công !", "Thông báo");
-								txtName.Text = "";
-								txtPrice.Text = "";
-								txtName.Focus();
-								this.OnLoad(e);
-							}
-							else MessageBox.Show("Không thể sửa dữ liệu thuốc !", "Thông báo");
+							MessageBox.Show("Sửa dữ liệu thuốc thành công !", "Thông báo");
+							txtName.Text = "";
+							txtPrice.Text = "";
+							txtName.Focus();
+							this.OnLoad(e);
 						}
-						catch(Exception ex )
-						{
-							MessageBox.Show(ex.Message, "Thông báo");
-						}
+						else MessageBox.Show("Không thể sửa dữ liệu thuốc !", "Thông báo");
 					}
 					db.CloseConnection();
 				}
