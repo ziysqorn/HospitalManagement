@@ -90,9 +90,11 @@ NhanVienID int,
 CTKB_ID int,
 foreign key (BenhNhanID) references BenhNhan(ID),
 foreign key (NhanVienID) references NhanVien(ID),
-foreign key (CTKB_ID) references ChiTietKhamBenh(ID)
 )
 
+ALTER TABLE ToaThuoc
+ADD CONSTRAINT FK_ToaThuoc_CTKB FOREIGN KEY (CTKB_ID)
+    REFERENCES ChiTietKhamBenh(ID);
 
 create table ChiTietKhamBenh(
 ID int identity(1,1) primary key,
